@@ -24,7 +24,7 @@
 	
 //Step4
 //    p.setDebug(out);
-    p.setLayout("blog");
+    p.setLayout("user");
     p.setBody("sample/admin/index");
     p.setVar("list", list);
     p.setVar("total_cnt", lm.getTotalNum());
