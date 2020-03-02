@@ -5,15 +5,9 @@
 //	f.addElement("login_id", null, "title:'login_id', required:'Y'");
 //	f.addElement("passwd", null, "title:'password', required:'Y'");
 
-	ListManager lm = new ListManager();
 
 	if(m.isPost() && f.validate()) {
-		lm.setRequest(request);
-		lm.setTable("tb_user a");
-		lm.setFields("a.login_id, a.passwd");
-		lm.addWhere("a.status != -1");
-		lm.addSearch("a.login_id", f.get("login_id"));
-		lm.addSearch("a.passwd", f.get("passwd"));
+
 
 		if("admin".equals(f.get("login_id")) && "1234".equals(f.get("passwd"))) {
 
