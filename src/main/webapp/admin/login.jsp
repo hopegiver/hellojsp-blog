@@ -11,14 +11,14 @@ UserDao user = new UserDao();
 		
 		ListManager lm = new ListManager();
 		lm.setRequest(request);
-	    lm.setTable("tb_user a");
+	    lm.setTable("tb_admin a");
 	    lm.setFields("a.*");
 	    lm.addSearch("a.login_id", f.get("login_id"));
 	    lm.addSearch("a.passwd", m.sha256(f.get("passwd")));
 	    lm.setOrderBy("a.id DESC");
 		DataSet list = lm.getDataSet();
 	    if(list.next()) {
-	    	auth.put("user_id", "admin");
+	    	auth.put("user_id", f.get("login_id"));
 			auth.save();
 			
 			m.jsAlert("Login success");
