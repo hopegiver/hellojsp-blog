@@ -52,7 +52,7 @@ if(m.isPost() && f.validate()) {
 
 //Step6
 p.setLayout("blog");
-p.setBody("sample/admin/update");
+p.setBody("admin/user/update");
 p.setVar("info", info);
 p.setVar("form_script", f.getScript());
 p.print();
