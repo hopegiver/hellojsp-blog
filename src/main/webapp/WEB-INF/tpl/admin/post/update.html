@@ -9,24 +9,28 @@
 	<div class="panel-body">
 		<form name="form1" method="post" class="form-horizontal" enctype="multipart/form-data">
 			<div class="form-group">
-				<label class="control-label col-sm-2">Login Id</label>
-				<div class="col-sm-10"><input type="text" name="login_id" class="form-control"></div>
+				<label class="control-label col-sm-2">User ID</label>
+				<div class="col-sm-3"><input type="text" name="user_id" class="form-control"></div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-sm-2">Password</label>
-				<div class="col-sm-10"><input type="text" name="passwd"  class="form-control"></div>
+				<label class="control-label col-sm-2">Type</label>
+				<div class="col-sm-3"><input type="text" name="type"  class="form-control"></div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-sm-2">Nick Name</label>
-				<div class="col-sm-10"><input type="text" name="nickname" class="form-control"></div>
+				<label class="control-label col-sm-2">Subject</label>
+				<div class="col-sm-4"><input type="text" name="subject" class="form-control"></div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-sm-2">Email</label>
-				<div class="col-sm-10"><input type="text" name="email"  class="form-control"></div>
+				<label class="control-label col-sm-2">Content</label>
+				<div class="col-sm-10"><textarea name="content" style="height:150px" class="form-control"></textarea></div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">Comment count</label>
+				<div class="col-sm-3"><input type="text" name="comment_cnt"  class="form-control"></div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2">Photo File</label>
-				<div class="col-sm-10">
+				<div class="col-sm-4">
 					<input type="file" name="photo_url" class="form-control">
 					<!--#if($info.att_file_name != '')-->
 					${info.photo_url} <label class="label label-danger">Delete</label> <input type="checkbox" name="photo_url_del" value="Y">
