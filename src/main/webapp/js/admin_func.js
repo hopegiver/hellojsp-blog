@@ -1,5 +1,7 @@
 $.ajaxSetup({cache:false});
 
+
+
 //회원메일 발송
 function OpenPopSendMail(idx, type) {
 	//OpenWindows("../mail/pop_mail.jsp?idx=" + idx, "M607", 820, 795);
