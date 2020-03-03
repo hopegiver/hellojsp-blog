@@ -33,7 +33,7 @@ if(m.isPost() && f.validate()) {
 
 //Step6
 p.setLayout("blog");
-p.setBody("sample/admin/delete");
+p.setBody("admin/user/delete");
 p.setVar("info", info);
 p.setVar("form_script", f.getScript());
 p.print();
