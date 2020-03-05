@@ -1,3 +1,8 @@
 .panel .pagination { margin:0 }
 .panel .dl-horizontal { margin-top: 20px; }
 .panel .dl-horizontal dt, .panel .dl-horizontal dd { padding:0.5rem; }
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500);
+@import url(https://fonts.googleapis.com/css?family=Damion);
+
+
