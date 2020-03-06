@@ -17,7 +17,7 @@ AdminUserDao adminuser = new AdminUserDao();
 			auth.save();
 			
 			m.jsAlert("Login success");
-			m.jsReplace("adminuser/index.jsp");
+			m.jsReplace("user/index.jsp");
 		} else {
 			m.jsError("id or password is not correct.");
 			return;
