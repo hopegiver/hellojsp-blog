@@ -1,23 +1,18 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
-UserDao user = new UserDao();
+AdminUserDao adminuser = new AdminUserDao();
 	m.p("USER_ID : " + userId);
 
 	f.addElement("login_id", null, "title:'login_id', required:'Y'");
 	f.addElement("passwd", null, "title:'password', required:'Y'");
 
-	
-
 	if(m.isPost() && f.validate()) {
 		
-		ListManager lm = new ListManager();
-		lm.setRequest(request);
-	    lm.setTable("tb_admin a");
-	    lm.setFields("a.*");
-	    lm.addSearch("a.login_id", f.get("login_id"));
-	    lm.addSearch("a.passwd", m.sha256(f.get("passwd")));
-	    lm.setOrderBy("a.id DESC");
-		DataSet list = lm.getDataSet();
-	    if(list.next()) {
+		File attFile = f.saveFile("att_file");
+		
+		String pass = m.sha256(f.get("passwd"));
+		adminuser.find("");
+		DataSet info = adminuser.find("login_id = ? AND passwd = ? AND status = 1", new Object[] { f.get("login_id"), pass });
+	    if(info.next()) {
 	    	auth.put("user_id", f.get("login_id"));
 			auth.save();
 			
@@ -25,13 +20,12 @@ UserDao user = new UserDao();
 			m.jsReplace("user/index.jsp");
 		} else {
 			m.jsError("id or password is not correct.");
-			auth.destroy();
+			return;
 		}
-		return;
-		
+		return;		
 	}
 
-	p.setBody("example/admin/login");
+	p.setBody("admin/login");
 	p.setVar("form_script", f.getScript());
 	p.print();
 

@@ -1,14 +1,14 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
 
 //Step1
-UserDao user = new UserDao();
+AdminUserDao adminuser = new AdminUserDao();
 
 //Step2
 int id = m.reqInt("id");
 if(id == 0) { m.jsError("Primary Key is required"); return; }
 
 //Step3
-DataSet info = user.find("id = " + id);
+DataSet info = adminuser.find("id = " + id);
 if(!info.next()) { m.jsError("No Data"); return; }
 
 //Step4

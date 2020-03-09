@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
 
-    if(userId != null){
+     if(userId != null){ 
         //Step1
-        UserDao user = new UserDao();
+        AdminUserDao adminuser = new AdminUserDao();
 
         //Step2
         f.addElement("s_keyword", null, null);
@@ -11,7 +11,7 @@
         ListManager lm = new ListManager();
         //lm.setDebug(out);
         lm.setRequest(request);
-        lm.setTable("tb_user a");
+        lm.setTable("tb_adminuser a");
         lm.setFields("a.*");
         lm.addWhere("a.status != -1");
         lm.addSearch("a.login_id, a.nickname, a.passwd , a.email", f.get("s_keyword"), "LIKE");
@@ -27,16 +27,15 @@
 
         p.setLayout("blog");
         p.setBody("admin/user/index");
-
         p.setVar("list", list);
         p.setVar("total_cnt", lm.getTotalNum());
         p.setVar("pagebar", lm.getPaging());
         p.setVar("form_script", f.getScript());
         p.print();
 
-    } else {
+       } else {
         m.jsAlert("Need to login");
         m.jsReplace("/admin/login.jsp", "window");
-    }
+    } 
 
 %>
