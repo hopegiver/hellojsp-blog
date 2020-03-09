@@ -11,6 +11,9 @@ if(id == 0) { m.jsError("Primary Key is required"); return; }
 DataSet info = adminmenu.find("id = " + id);
 if(!info.next()) { m.jsError("No Data"); return; }
 
+DataSet parentMenu = adminmenu.find("id = " + id);
+if(!info.next()) { m.jsError("No Data"); return; }
+
 //Step4
 f.addElement("menu_name", info.s("menu_name"), "title:'menu_name', required:true");
 f.addElement("menu_cat", info.s("menu_cat"), "title:'menu_cat', required:false");
