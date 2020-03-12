@@ -1,8 +1,12 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
 
-//    if(userId != null){
+if(userId == null){
+	m.jsAlert("Need to login");
+	m.jsReplace("/admin/login.jsp", "window");
+}
+    if(userId != null){
         //Step1
-        PostDao post = new PostDao();
+        UserDao user = new UserDao();
 
         //Step2
         f.addElement("s_keyword", null, null);
@@ -25,17 +29,17 @@
 
         //Step4
         //    p.setDebug(out);
-        p.setLayout("blog");
-        p.setBody("admin/post/index");
+        p.setLayout("user");
+        p.setBody("sample/admin/index");
         p.setVar("list", list);
         p.setVar("total_cnt", lm.getTotalNum());
         p.setVar("pagebar", lm.getPaging());
         p.setVar("form_script", f.getScript());
         p.print();
 
-//    } else {
-//        m.jsAlert("Need to login");
-//        m.jsReplace("/admin/login.jsp", "window");
-//    }
+    } else {
+        m.jsAlert("Need to login");
+        m.jsReplace("/admin/login.jsp", "window");
+    }
 
 %>

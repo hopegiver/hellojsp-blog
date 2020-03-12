@@ -16,14 +16,22 @@
 				<label class="control-label col-sm-2">Menu Category</label>
 				<div class="col-sm-10">
 					<div class="form-check">
-						<label class="form-check-label"><input class="form-check-input radio-inline" type="radio" name="menu_cat"  value="admin" checked/>Admin</label>
+						<label class="form-check-label"><input class="form-check-input radio-inline" type="radio" name="menu_cat" value="admin" checked/>Admin</label>
 						<label class="form-check-label"><input class="form-check-input radio-inline" type="radio" name="menu_cat" value="user"/>User</label>
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2">Parent ID</label>
-				<div class="col-sm-10"><input type="text" name="parent_id"  class="form-control"></div>
+				<div class="col-sm-3">
+						<select class="form-control" name="parent_id" id="select">
+							<option value="0">Select</option>
+							<!--#foreach($parent in $parentMenu)  -->
+							<option value="${parent.id}">${parent.menu_name}</option>
+							<!--#end -->
+						</select>
+				</div>
+				
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2">Menu Url</label>

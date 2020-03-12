@@ -18,22 +18,19 @@
 	<table class="table table-bordered table-striped">
 	<tr>
 		<th>ID</th>
-		<th>User Id</th>
-		<th>Type</th>
-		<th>Subject</th>
-		<th>Content</th>
-		<th>Photo URL</th>
-		<th>comment_cnt</th>
+		<th>Login Id</th>
+		<th>Nick Name</th>
+		<th>passwd</th>
+		<th>Email</th>
+		<th>Manage</th>
 	</tr>
 	<!--#foreach($item in $list)-->
 	<tr>
 		<td><a href="read.jsp?id=${item.id}">${item.id}</a></td>
-		<td><a href="read.jsp?id=${item.id}">${item.user_id}</a></td>
-		<td>${item.type}</td>
-		<td><a href="read.jsp?id=${item.id}">${item.subject}</a></td>
-		<td>${item.content}</td>
-		<td>${item.photo_url}</td>
-		<td>${item.comment_cnt}</td>
+		<td><a href="read.jsp?id=${item.id}">${item.login_id}</a></td>
+		<td>${item.nickname}</td>
+		<td><a href="read.jsp?id=${item.id}">${item.passwd}</a></td>
+		<td>${item.email}</td>
 		<td>
 			<a href="update.jsp?id=${item.id}" class="label label-primary">Edit</a>
 			<a href="delete.jsp?id=${item.id}" class="label label-danger">Delete</a>

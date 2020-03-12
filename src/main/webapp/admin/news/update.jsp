@@ -4,7 +4,7 @@
 		m.jsReplace("/admin/login.jsp", "window");
 	}
 //Step1
-	NewsDao news = new NewsDao();
+NewsDao news = new NewsDao();
 
 //Step2
 int id = m.reqInt("id");
@@ -18,7 +18,9 @@ if(!info.next()) { m.jsError("No Data"); return; }
 f.addElement("type", info.s("type"), "title:'type', required:true");
 f.addElement("subject", info.s("subject"), "title:'subject', required:true");
 f.addElement("content", info.s("content"), "title:'content', required:true");
-f.addElement("photo_url", info.s("photo_url"), "title:'photo_url'");
+f.addElement("photo_name", info.s("photo_name"), "title:'photo_name'");
+f.addElement("video_url", info.s("video_url"), "title:'video_url'");
+
 
 //Step5
 if(m.isPost() && f.validate()) {
@@ -26,18 +28,21 @@ if(m.isPost() && f.validate()) {
 	news.item("type", f.get("type"));
 	news.item("subject", f.get("subject"));
 	news.item("content", f.get("content"));
-
-	if("Y".equals(f.get("photo_url_del"))) {
-		news.item("photo_url", "");
-		m.delFile(f.uploadDir + "/" + info.s("photo_url"));
+	news.item("video_url", f.get("video_url"));
+	news.item("mod_user", f.get("mod_user"));
+	news.item("mod_date", m.time("yyyyMMddHHmmss"));
+	
+	if("Y".equals(f.get("photo_name_del"))) {
+		news.item("photo_name", "");
+		m.delFile( "/" + info.s("photo_name"));
 	}
 	
-	File attFile = f.saveFile("photo_url");
+	File attFile = f.saveFile("photo_name");
 	if(attFile != null) {
-		news.item("photo_url", attFile.getName());
+		news.item("photo_name", f.getFileName("photo_name"));
 
-		if(!"".equals(info.s("photo_url"))) {
-			m.delFile(f.uploadDir + "/" + info.s("att_file_code"));
+		if(!"".equals(info.s("photo_name"))) {
+			m.delFile("/" + info.s("photo_name"));
 		}
 	}
 

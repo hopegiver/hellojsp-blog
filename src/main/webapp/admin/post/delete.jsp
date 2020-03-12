@@ -1,14 +1,18 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
 
+if(userId == null){
+	m.jsAlert("Need to login");
+	m.jsReplace("/admin/login.jsp", "window");
+}
 //Step1
-	PostDao post = new PostDao();
+UserDao user = new UserDao();
 
 //Step2
 int id = m.reqInt("id");
 if(id == 0) { m.jsError("Primary Key is required"); return; }
 
 //Step3
-DataSet info = post.find("id = " + id);
+DataSet info = user.find("id = " + id);
 if(!info.next()) { m.jsError("No Data"); return; }
 
 f.addElement("id", info.s("id"), "title:'ID', required:true");
@@ -19,10 +23,10 @@ if(m.isPost() && f.validate()) {
 	if(!"".equals(info.s("att_file_code"))) {
 		m.delFile(f.uploadDir + "/" + info.s("att_file_code"));
 	}
-	post.item("status", -1);
+	user.item("status", -1);
 
 	//blog.setDebug(out);
-	if(!post.update("id = " + id)) {
+	if(!user.update("id = " + id)) {
 		m.jsAlert("Error occurred(delete)");
 		return;
 	}
@@ -33,7 +37,7 @@ if(m.isPost() && f.validate()) {
 
 //Step6
 p.setLayout("blog");
-p.setBody("admin/post/delete");
+p.setBody("sample/admin/delete");
 p.setVar("info", info);
 p.setVar("form_script", f.getScript());
 p.print();

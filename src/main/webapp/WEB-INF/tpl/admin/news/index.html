@@ -21,7 +21,9 @@
 		<th>Type</th>
 		<th>Subject</th>
 		<th>Content</th>
-		<th></th>
+		<th>Photo Name</th>
+		<th>Video URL</th>
+		<th>Manage</th>
 	</tr>
 	<!--#foreach($item in $list)-->
 	<tr>
@@ -29,6 +31,8 @@
 		<td>${item.type}</td>
 		<td><a href="read.jsp?id=${item.id}">${item.subject}</a></td>
 		<td>${item.content}</td>
+		<td>${item.photo_name}</td>
+		<td>${item.video_url}</td>
 		<td>
 			<a href="update.jsp?id=${item.id}" class="label label-primary">Edit</a>
 			<a href="delete.jsp?id=${item.id}" class="label label-danger">Delete</a>

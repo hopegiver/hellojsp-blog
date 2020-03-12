@@ -1,5 +1,9 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
 
+if(userId == null){
+	m.jsAlert("Need to login");
+	m.jsReplace("/admin/login.jsp", "window");
+}
 //Step1
 AdminMenuDao adminmenu = new AdminMenuDao();
 
@@ -11,8 +15,7 @@ if(id == 0) { m.jsError("Primary Key is required"); return; }
 DataSet info = adminmenu.find("id = " + id);
 if(!info.next()) { m.jsError("No Data"); return; }
 
-DataSet parentMenu = adminmenu.find("id = " + id);
-if(!info.next()) { m.jsError("No Data"); return; }
+DataSet parentMenu = adminmenu.find("status != -1 AND parent_id = 0");
 
 //Step4
 f.addElement("menu_name", info.s("menu_name"), "title:'menu_name', required:true");
@@ -52,6 +55,7 @@ if(m.isPost() && f.validate()) {
 p.setLayout("blog");
 p.setBody("admin/menu/update");
 p.setVar("info", info);
+p.setVar("parentMenu", parentMenu);
 p.setVar("form_script", f.getScript());
 p.print();
 

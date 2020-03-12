@@ -1,5 +1,9 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
 
+if(userId == null){
+	m.jsAlert("Need to login");
+	m.jsReplace("/admin/login.jsp", "window");
+}
 //Step1
 AdminUserDao adminuser = new AdminUserDao();
 

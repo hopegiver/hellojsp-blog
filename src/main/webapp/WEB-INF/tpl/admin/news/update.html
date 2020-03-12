@@ -10,7 +10,17 @@
 		<form name="form1" method="post" class="form-horizontal" enctype="multipart/form-data">
 			<div class="form-group">
 				<label class="control-label col-sm-2">Type</label>
-				<div class="col-sm-3"><input type="text" name="type"  class="form-control"></div>
+				<div class="col-sm-3">
+					<select class="form-control" name="type">
+						<option value="other">Select</option>
+						<option value="politics">Politics</option>
+						<option value="lifestyle">Lifestyle</option>
+						<option value="travel">Travel</option>
+						<option value="health">Health</option>
+						<option value="entertainment">Entertainment</option>
+						<option value="sport">Sport</option>
+					</select>
+				</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2">Subject</label>
@@ -23,11 +33,15 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2">Photo File</label>
 				<div class="col-sm-4">
-					<input type="file" name="photo_url" class="form-control">
+					<input type="file" name="photo_name" class="form-control">
 					<!--#if($info.att_file_name != '')-->
-					${info.photo_url} <label class="label label-danger">Delete</label> <input type="checkbox" name="photo_url_del" value="Y">
+					${info.photo_name} <label class="label label-danger">Delete</label> <input type="checkbox" name="photo_name_del" value="Y">
 					<!--#end-->
 				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">Video URL</label>
+				<div class="col-sm-4"><input type="text" name="video_url" class="form-control"></div>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">

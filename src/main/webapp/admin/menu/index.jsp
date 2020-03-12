@@ -23,6 +23,8 @@
             list.put("reg_date", m.time("yyyy-MM-dd", list.s("reg_date")));
         }
 
+        DataSet parent = adminmenu.find("status != -1 AND parent_id = 0 ");
+
         //Step4
 
         p.setLayout("blog");

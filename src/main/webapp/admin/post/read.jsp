@@ -1,23 +1,28 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
 
+if(userId == null){
+	m.jsAlert("Need to login");
+	m.jsReplace("/admin/login.jsp", "window");
+}
 //Step1
-    PostDao post = new PostDao();
+UserDao user = new UserDao();
 
 //Step2
 int id = m.reqInt("id");
 if(id == 0) { m.jsError("Primary Key is required"); return; }
 
 //Step3
-DataSet info = post.find("id = " + id);
+DataSet info = user.find("id = " + id);
 if(!info.next()) { m.jsError("No Data"); return; }
 
 //Step4
-info.put("user_id", m.htt(info.s("user_id")));
+info.put("login_id", m.htt(info.s("login_id")));
+info.put(m.sha256("passwd"), m.htt(info.s("passwd")));
 info.put("reg_date", m.time("yyyy-MM-dd HH:mm", info.s("reg_date")));
 
 //Step5
 p.setLayout("blog");
-p.setBody("admin/post/read");
+p.setBody("sample/admin/read");
 p.setVar("info", info);
 p.print();
 
