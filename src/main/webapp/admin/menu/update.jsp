@@ -13,9 +13,11 @@ if(id == 0) { m.jsError("Primary Key is required"); return; }
 
 //Step3
 DataSet info = adminmenu.find("id = " + id);
-if(!info.next()) { m.jsError("No Data"); return; }
+if(!info.next()) { m.jsError("No Data"); return; } 
 
-DataSet parentMenu = adminmenu.find("status != -1 AND parent_id = 0");
+DataSet parentMenu = adminmenu.find("status != -1 AND parent_id = 0", "*", "sort");
+
+DataSet subMenu = adminmenu.find("status != -1 AND parent_id != 0", "*", "sort");
 
 //Step4
 f.addElement("menu_name", info.s("menu_name"), "title:'menu_name', required:true");
@@ -56,6 +58,7 @@ p.setLayout("blog");
 p.setBody("admin/menu/update");
 p.setVar("info", info);
 p.setVar("parentMenu", parentMenu);
+p.setVar("subMenu", subMenu);
 p.setVar("form_script", f.getScript());
 p.print();
 

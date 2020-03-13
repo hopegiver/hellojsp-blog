@@ -21,7 +21,7 @@ f.addElement("id", info.s("id"), "title:'ID', required:true");
 if(m.isPost() && f.validate()) {
 
 	if(!"".equals(info.s("photo_url"))) {
-		m.delFile(f.uploadDir + "/" + info.s("photo_url"));
+		m.delFile(UploadPath + "/" + info.s("photo_url"));
 	}
 	banner.item("status", -1);
 

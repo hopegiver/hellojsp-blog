@@ -1,9 +1,23 @@
 <div> #parse("front/header.html")</div>
     <!-- Welcome Blog Slide Area Start -->
     <section class="welcome-blog-post-slide owl-carousel">
+    	<!-- #foreach($banner in $bannerList) -->
+	    	<div class="single-blog-post-slide bg-img background-overlay-5" style="background-image: url(uploads/${banner.photo_name});">
+	            Single Blog Post Content
+	            <div class="single-blog-post-content">
+	                <div class="tags">
+	                    <a href="#">live</a>
+	                </div>
+	                <h3><a href="#" class="font-pt">${banner.title}</a></h3>
+	                <div class="date">
+	                    <a href="#">{banner.reg_date}</a>
+	                </div>
+	            </div>
+	        </div> 
+        <!-- #end -->
         <!-- Single Blog Post -->
-        <div class="single-blog-post-slide bg-img background-overlay-5" style="background-image: url(img/bg-img/1.jpg);">
-            <!-- Single Blog Post Content -->
+        <!-- <div class="single-blog-post-slide bg-img background-overlay-5" style="background-image: url(img/bg-img/1.jpg);">
+            Single Blog Post Content
             <div class="single-blog-post-content">
                 <div class="tags">
                     <a href="#">crypto</a>
@@ -13,10 +27,10 @@
                     <a href="#">March 29, 2018</a>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Single Blog Post -->
-        <div class="single-blog-post-slide bg-img background-overlay-5" style="background-image: /img/bg-img/2.jpg);">
-            <!-- Single Blog Post Content -->
+        <!-- <div class="single-blog-post-slide bg-img background-overlay-5" style="background-image: /img/bg-img/2.jpg);">
+            Single Blog Post Content
             <div class="single-blog-post-content">
                 <div class="tags">
                     <a href="#">live</a>
@@ -26,10 +40,10 @@
                     <a href="#">March 29, 2018</a>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Single Blog Post -->
-        <div class="single-blog-post-slide bg-img background-overlay-5" style="background-image: url(img/bg-img/3.jpg);">
-            <!-- Single Blog Post Content -->
+        <!-- <div class="single-blog-post-slide bg-img background-overlay-5" style="background-image: url(img/bg-img/3.jpg);">
+            Single Blog Post Content
             <div class="single-blog-post-content">
                 <div class="tags">
                     <a href="#">politics</a>
@@ -39,10 +53,10 @@
                     <a href="#">March 29, 2018</a>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Single Blog Post -->
-        <div class="single-blog-post-slide bg-img background-overlay-5" style="background-image: url(img/bg-img/2.jpg);">
-            <!-- Single Blog Post Content -->
+        <!-- <div class="single-blog-post-slide bg-img background-overlay-5" style="background-image: url(img/bg-img/2.jpg);">
+            Single Blog Post Content
             <div class="single-blog-post-content">
                 <div class="tags">
                     <a href="#">live</a>
@@ -52,7 +66,7 @@
                     <a href="#">March 29, 2018</a>
                 </div>
             </div>
-        </div>
+        </div> -->
     </section>
     <!-- Welcome Blog Slide Area End -->
 

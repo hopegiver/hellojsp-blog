@@ -7,10 +7,14 @@
 //Step1
 BannerDao banner = new BannerDao();
 
+DataSet bannerList = banner.find("status != -1 AND use_yn='Y'", "*", "sort");
+
 //Step2
 f.addElement("title", null, "title:'title', required:true");
 f.addElement("content", null, "title:'content', required:true");
 f.addElement("att_file", null, "title:'file'");
+f.addElement("use_yn", null, "title:'use_yn'");
+f.addElement("sort", null, "title:'sort'");
 
 //Step3
 if(m.isPost() && f.validate()) {
@@ -18,11 +22,13 @@ if(m.isPost() && f.validate()) {
 	banner.item("title", f.get("title"));
 	banner.item("content", f.get("content"));
 
-	File attFile = f.saveFile("att_file");
+	File attFile = f.saveFile("att_file", UploadPath);
 	if(attFile != null) {
 		banner.item("photo_name", f.getFileName("att_file"));
 		banner.item("photo_url", attFile.getName());
 	}
+	banner.item("use_yn", f.get("use_yn"));
+	banner.item("sort", f.get("sort"));
 	banner.item("reg_date", m.time("yyyyMMddHHmmss"));
 	banner.item("status", 1);
 
@@ -40,6 +46,7 @@ if(m.isPost() && f.validate()) {
 p.setDebug(out);
 p.setLayout("blog");
 p.setBody("admin/banner/create");
+p.setVar("bannerList", bannerList);
 p.setVar("form_script", f.getScript());
 p.print();
 

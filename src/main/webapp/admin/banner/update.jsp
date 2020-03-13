@@ -19,6 +19,8 @@ if(!info.next()) { m.jsError("No Data"); return; }
 f.addElement("title", info.s("title"), "title:'title', required:true");
 f.addElement("content", info.s("content"), "title:'content', required:true");
 f.addElement("att_file_name", info.s("att_file_name"), "title:'file'");
+f.addElement("use_yn", info.s("use_yn"), "title:'use_yn'");
+f.addElement("sort", info.s("sort"), "title:'sort'");
 
 //Step5
 if(m.isPost() && f.validate()) {
@@ -30,7 +32,7 @@ if(m.isPost() && f.validate()) {
 		banner.item("photo_name", "");
 		banner.item("photo_url", "");
 		info.put("photo_url", "");
-		m.delFile(f.uploadDir + "/" + info.s("photo_url"));
+		m.delFile(UploadPath + "/" + info.s("photo_url"));
 	}
 	
 	File attFile = f.saveFile("att_file");
@@ -39,9 +41,11 @@ if(m.isPost() && f.validate()) {
 		banner.item("photo_url", attFile.getName());
 
 		if(!"".equals(info.s("photo_url"))) {
-			m.delFile(f.uploadDir + "/" + info.s("photo_url"));
+			m.delFile(UploadPath + "/" + info.s("photo_url"));
 		}
 	}
+	banner.item("use_yn", f.get("use_yn"));
+	banner.item("sort", f.get("sort"));
 
 	//blog.setDebug(out);
 	if(!banner.update("id = " + id)) {

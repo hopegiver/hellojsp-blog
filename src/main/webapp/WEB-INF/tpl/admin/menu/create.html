@@ -1,81 +1,99 @@
-<div class="page-header">
-	<h1>Admin Menu</h1>
-</div>
-
-<div class="panel panel-default">
-	<div class="panel-heading">
-		<h3 class="panel-title">Add Menu</h3>
+	<div class="page-header">
+	    <h1 class="page-title text-primary-d2">
+	        Admin Menu
+	         <small class="page-info text-secondary-d2">
+	            <i class="fa fa-angle-double-right text-80"></i>
+	            Add Menu
+	        </small>
+	    </h1>
 	</div>
-	<div class="panel-body">
-		<form name="form1" method="post" class="form-horizontal" enctype="multipart/form-data">
-			<div class="form-group">
-				<label class="control-label col-sm-2">Menu Name</label>
-				<div class="col-sm-10"><input type="text" name="menu_name" class="form-control"></div>
-			</div>
+	<div> 
+		<form name="form1" method="post" enctype="multipart/form-data">
 			<div class="form-group row">
-				<label class="control-label col-sm-2">Menu Category</label>
-				<div class="col-sm-10">
-					<div class="form-check">
-						<label class="form-check-label"><input class="form-check-input radio-inline" type="radio" name="menu_cat" value="admin" checked/>Admin</label>
-						<label class="form-check-label"><input class="form-check-input radio-inline" type="radio" name="menu_cat" value="user"/>User</label>
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-2">Parent ID</label>
-				<div class="col-sm-3">
-						<select class="form-control" name="parent_id" id="select">
-							<option value="0">Select</option>
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Menu Name</label>
+		        </div>	
+		        <div class="col-sm-9">
+		            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="menu_name" />
+		        </div>
+		    </div>
+			<div class="form-group row">
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Menu Category</label>
+		        </div>	
+		        <div class="col-sm-9">
+		            <label><input type="radio" class="radio-inline" name="menu_cat" value="admin"/>Admin</label>
+		            <label><input type="radio" class="radio-inline" name="menu_cat" value="user" checked/>User</label>
+		        </div>
+		    </div>
+			<div class="form-group row">
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Parent ID</label>
+		        </div>	
+		        <div class="col-sm-4">
+				   <select class="form-control" id="form-field-select-1" name="parent_id">
+						  <option value="0">Select</option>
 							<!--#foreach($parent in $parentMenu)  -->
 							<option value="${parent.id}">${parent.menu_name}</option>
 							<!--#end -->
-						</select>
-				</div>
-				
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-2">Menu Url</label>
-				<div class="col-sm-10"><input type="text" name="menu_url" class="form-control"></div>
-			</div>
+					</select>
+		        </div>
+		    </div>
 			<div class="form-group row">
-				<label class="control-label col-sm-2">Whether to use or not to use</label>
-				<div class="col-sm-10">
-					<div class="form-check">
-						<label class="form-check-label"><input class="form-check-input radio-inline" type="radio" name="use_yn"  value="Y"  checked/>Use</label>
-						<label class="form-check-label"><input class="form-check-input radio-inline" type="radio" name="use_yn" value="N"/>Not use</label>
-					</div>
-				</div>
-			</div>
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Menu Url</label>
+		        </div>	
+		        <div class="col-sm-9">
+		            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="menu_url" />
+		        </div>
+		    </div>
 			<div class="form-group row">
-				<label class="control-label col-sm-2">Target</label>
-				<div class="col-sm-10">
-					<div class="form-check">
-						<label class="form-check-label"><input class="form-check-input radio-inline" type="radio" name="target"  value="1"/>New window</label>
-						<label class="form-check-label"><input class="form-check-input radio-inline" type="radio" name="target" value="2" checked/>Current window</label>
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-2">Menu depth</label>
-				<div class="col-sm-10"><input type="text" name="menu_depth"  class="form-control"></div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-2">Sort</label>
-				<div class="col-sm-10"><input type="text" name="sort" class="form-control"></div>
-			</div>
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Whether to use or not to use</label>
+		        </div>	
+		        <div class="col-sm-9">
+		            <label><input type="radio" class="radio-inline" name="use_yn" value="Y" checked/>Use</label>
+		            <label><input type="radio" class="radio-inline" name="use_yn" value="N"/>Not use</label>
+		        </div>
+		    </div>
 			<div class="form-group row">
-				<label class="control-label col-sm-2">Menu type</label>
-				<div class="col-sm-10">
-					<div class="form-check">
-						<label class="form-check-label"><input class="form-check-input radio-inline" type="radio" name="menu_type"  value="1"  checked/>Page</label>
-						<label class="form-check-label"><input class="form-check-input radio-inline" type="radio" name="menu_type" value="2"/>Notice board</label>
-						<label class="form-check-label"><input class="form-check-input radio-inline" type="radio" name="menu_type" value="3"/>Program</label>
-						<label class="form-check-label"><input class="form-check-input radio-inline" type="radio" name="menu_type" value="4"/>Link</label>
-						<label class="form-check-label"><input class="form-check-input radio-inline" type="radio" name="menu_type" value="5"/>Submenu link</label>
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Target</label>
+		        </div>	
+		        <div class="col-sm-9">
+		            <label><input type="radio" class="radio-inline" name="target" value="new" />New window</label>
+		            <label><input type="radio" class="radio-inline" name="target" value="current" checked/>Current window</label>
+		        </div>
+		    </div>
+			<div class="form-group row">
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Menu Depth</label>
+		        </div>	
+		        <div class="col-sm-9">
+		            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="menu_depth" />
+		        </div>
+		    </div>
+			<div class="form-group row">
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Sort</label>
+		        </div>	
+		        <div class="col-sm-9">
+		            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="sort" />
+		        </div>
+		    </div>
+			<div class="form-group row">
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Menu Type</label>
+		        </div>	
+		        <div class="col-sm-9">
+		            <label><input type="radio" class="radio-inline" name="menu_type" value="page" checked/>Page</label>
+		            <label><input type="radio" class="radio-inline" name="menu_type" value="not_board"/>Notice board</label>
+		            <label><input type="radio" class="radio-inline" name="menu_type" value="program"/>Program</label>
+		            <label><input type="radio" class="radio-inline" name="menu_type" value="link"/>Link</label>
+		            <label><input type="radio" class="radio-inline" name="menu_type" value="submenu_link"/>Submenu link</label>
+		        </div>
+		    </div>
+		    <div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
 					<input type="submit" value="Save" class="btn btn-primary">
 					<input type="button" value="Cancel" class="btn btn-default" onclick="history.go(-1)">
@@ -84,4 +102,3 @@
 		</form>
 		${form_script}
 	</div>
-</div>

@@ -13,10 +13,16 @@ Message msg = new Message();
 p.setVar("msg", msg);
 
 String userId = null;
+String UploadPath = "E:/hellojsp/hellojsp-blog/src/main/webapp/uploads";
 
 Auth auth = new Auth(request, response);
 if(auth.validate()) {
 	userId = auth.get("user_id");
 }
 
+AdminMenuDao parentadminmenu = new AdminMenuDao();
+
+DataSet adminparentMenu = parentadminmenu .find("status != -1 AND parent_id = 0 AND menu_cat='admin'", "*", "sort");
+
+p.setVar("adminparentMenu", adminparentMenu);
 %>

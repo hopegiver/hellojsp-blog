@@ -4,14 +4,10 @@
 <div>
 #parse("layout/leftbar.html")
 </div>
-<div class="main-content">
-	<!-- <div class="main-content-inner"> -->
-		<!-- <div class="page-content"> -->
-			<div class="ace-settings-container" id="ace-settings-container" style="width: 1680px;"> 
+<div role="main" class="main-content">
+			<div class="page-content container"> 
   				#parse( $BODY )
   			</div> 
-  		<!-- </div> -->
-  	<!-- </div> -->
 </div>
 <div>
 #parse("layout/footer.html")

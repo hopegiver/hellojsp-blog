@@ -6,15 +6,10 @@ if(userId == null){
 }
 //Step1
 AdminMenuDao adminmenu = new AdminMenuDao();
-DataSet parentMenu = adminmenu.find("status != -1 AND parent_id = 0");
-if(!parentMenu.next()) { m.jsError("No Data"); return; }
 
-DataSet menuInfo = adminmenu.find("status != -1", "id, menu_name, menu_type, menu_cat, target, menu_depth, menu_url, parent_id, sort", "sort");
-if(!menuInfo.next()) { m.jsError("No Data"); return; }
+DataSet parentMenu = adminmenu.find("status != -1 AND parent_id = 0", "*", "sort");
 
-DataSet subMenu = adminmenu.find("status != -1", "id, menu_name, menu_type, menu_cat, target, menu_depth, menu_url, parent_id, sort", "sort");
-if(!subMenu.next()) { m.jsError("No Data"); return; }
-
+DataSet subMenu = adminmenu.find("status != -1 AND parent_id != 0", "*", "sort");
 
 //Step2
 f.addElement("menu_name", null, "title:'menu_name', required:true");
@@ -57,6 +52,7 @@ p.setLayout("blog");
 p.setBody("admin/menu/create");
 p.setVar("form_script", f.getScript());
 p.setVar("parentMenu", parentMenu);
+p.setVar("subMenu", subMenu);
 p.print();
 
 %>
