@@ -1,46 +1,69 @@
-
 <div class="page-header">
-	<h1>News</h1>
+    <h1 class="page-title text-primary-d2">
+        News
+         <small class="page-info text-secondary-d2">
+            <i class="fa fa-angle-double-right text-80"></i>
+            News
+        </small>
+    </h1>
 </div>
-<div class="panel panel-default">
-	<div class="panel-body">
-		<div class="pull-right">
-			<form name="form1" method="get" class="form-inline">
-			<input type="text" name="s_keyword" class="form-control">
-			<input class="btn btn-default" type="submit" value="Search">
-			</form>
-			${form_script}
-		</div>
-		<div class="pull-left">
-			<a href="create.jsp" class="btn btn-small btn-primary">New</a>
-		</div>
+<div class="clearfix">
+	<div class="float-md-right">
+		<form name="form1" method="get" class="form-inline">
+		<input type="text" name="s_keyword" class="form-control">
+		<input class="btn btn-default" type="submit" value="Search">
+		</form>
+		${form_script}
 	</div>
-	<table class="table table-bordered table-striped">
-	<tr>
-		<th>ID</th>
-		<th>Type</th>
-		<th>Subject</th>
-		<th>Content</th>
-		<th>Photo Name</th>
-		<th>Video URL</th>
-		<th>Manage</th>
-	</tr>
-	<!--#foreach($item in $list)-->
-	<tr>
-		<td><a href="read.jsp?id=${item.id}">${item.id}</a></td>
-		<td>${item.type}</td>
-		<td><a href="read.jsp?id=${item.id}">${item.subject}</a></td>
-		<td>${item.content}</td>
-		<td>${item.photo_name}</td>
-		<td>${item.video_url}</td>
-		<td>
-			<a href="update.jsp?id=${item.id}" class="label label-primary">Edit</a>
-			<a href="delete.jsp?id=${item.id}" class="label label-danger">Delete</a>
-		</td>
-	</tr>
-	<!--#end-->
-	</table>
-	<div class="panel-body text-center">
-		${pagebar}
+	<div class="float-md-left">
+		<a href="create.jsp" class="btn btn-small btn-primary">New</a>
 	</div>
+</div>
+<table id="simple-table" class="table table-bordered table-bordered-x table-hover text-dark-m2">
+	<thead>
+		<tr>
+			<th class="d-none d-sm-table-cell">ID</th>
+			<th class="d-none d-sm-table-cell">Menu Type</th>
+			<th class="d-none d-sm-table-cell">Subject</th>
+			<th class="d-none d-sm-table-cell">Content</th>
+			<th class="d-none d-sm-table-cell">Photo Name</th>
+			<th class="d-none d-sm-table-cell">Video URL</th>
+			<th class="d-none d-sm-table-cell">Whether use or not</th>
+			<th class="d-none d-sm-table-cell">Registered date</th>
+			<th class="d-none d-sm-table-cell">Modified date</th>			
+			<th class="d-none d-sm-table-cell">Manage</th>
+		</tr>
+	</thead>
+	<tbody class="bgc">
+		<!--#foreach($item in $list)-->
+		<tr>
+			<td class='d-none d-sm-table-cell'><a href="read.jsp?id=${item.id}">${item.id}</a></td>
+			<td class='d-none d-sm-table-cell'><a href="read.jsp?id=${item.id}">${item.type}</a></td>
+			<td class='d-none d-sm-table-cell'><a href="read.jsp?id=${item.id}">${item.subject}</a></td>
+			<td class='d-none d-sm-table-cell'>${item.content}</td>
+			<td class='d-none d-sm-table-cell'>${item.photo_name}</td>
+			<td class='d-none d-sm-table-cell'>${item.video_url}</td>
+			<td class='d-none d-sm-table-cell'>${item.use_yn}</td>
+			<td class='d-none d-sm-table-cell'>${item.reg_date}</td>
+			<td class='d-none d-sm-table-cell'>${item.mod_date}</td>
+			<td>
+				<div class='d-none d-lg-flex text-muted'>
+					<a href="update.jsp?id=${item.id}" class="btn radius-1 btn-sm btn-brc-tp btn-outline-default btn-h-outline-primary btn-a-outline-primary btn-text-primary"><i class="fa fa-pencil-alt"></i></a>
+					<a href="delete.jsp?id=${item.id}" class="btn radius-1 btn-sm btn-brc-tp btn-outline-default btn-h-outline-danger btn-a-outline-danger btn-text-danger"><i class="fa fa-trash-alt"></i></a>
+				</div>
+
+				<div class='dropdown d-inline-block d-lg-none dd-backdrop dd-backdrop-none-md'>
+					<a href='#' class='btn btn-outline-warning btn-xs radius-round dropdown-toggle' data-toggle="dropdown"><i class="fa fa-cog text-110"></i></a>
+					<div class="dropdown-menu dd-slide-up dd-slide-none-md"><div class="dropdown-inner">
+						<a href="update.jsp?id=${item.id}" class="dropdown-item"><i class="fa fa-pencil-alt text-blue-m1 mr-1 bgc-white-tp1 radius-round p-2 w-4"></i>Edit</a>
+						<a href="delete.jsp?id=${item.id}" class="dropdown-item"><i class="fa fa-trash text-danger-m1 mr-1 bgc-white-tp1 radius-round p-2 w-4"></i>Delete</a>
+					</div></div>
+				</div>
+			</td>
+		</tr>
+		<!--#end-->
+	</tbody>
+</table>
+<div class="pagination justify-content-center">
+	${pagebar}
 </div>

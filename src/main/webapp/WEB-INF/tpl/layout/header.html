@@ -1,5 +1,7 @@
 <!doctype html>
 <html lang="en">
+  <!doctype html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
@@ -13,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="/resources/admin/node_modules/@fortawesome/fontawesome-free/css/regular.css">
     <link rel="stylesheet" type="text/css" href="/resources/admin/node_modules/@fortawesome/fontawesome-free/css/brands.css">
     <link rel="stylesheet" type="text/css" href="/resources/admin/node_modules/@fortawesome/fontawesome-free/css/solid.css">
-    <link rel="stylesheet" type="text/css" href="/resources/admin/admin_panel.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/resources/admin/admin_panel.css"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     
@@ -36,6 +38,13 @@
     <link rel="icon" type="image/png" href="/resources/admin/assets/favicon.png" />
     
     <!-- "Dashboard" page styles specific to this page for demo purposes -->
+    
+    <!-- include vendor stylesheets used in "Wysiwyg & Editor" page. see "application/views/default/pages/partials/form-editor/@vendor-stylesheets.hbs" -->
+    <link rel="stylesheet" type="text/css" href="/resources/admin/node_modules/summernote/dist/summernote-lite.css">
+    
+    <link rel="stylesheet" type="text/css" href="/resources/admin/node_modules/bootstrap-markdown/css/bootstrap-markdown.min.css">
+      
+    <!-- "Wysiwyg & Editor" page styles specific to this page for demo purposes -->
   </head>
 
   <body>
@@ -51,8 +60,8 @@
               
               <a class="navbar-brand text-white" href="#">
                   <i class="fa fa-leaf"></i>
-                  <span>The Gazette</span>
-                  
+                  <span>Ace</span>
+                  <span>App</span>
               </a><!-- /.navbar-brand -->
               
               <button type="button" class="btn btn-burger mr-2 d-none d-xl-flex" data-toggle="sidebar" data-target="#sidebar" aria-controls="sidebar" aria-expanded="true" aria-label="Toggle sidebar">
@@ -81,7 +90,7 @@
           <!-- mobile #navbarMenu toggler button -->
           <button class="navbar-toggler ml-1 mr-2 px-1" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navbar menu">
               <span class="pos-rel">
-                  <img class="border-2 brc-white-tp1 radius-round" width="36" src="/resources/admin/assets/image/user.jpg" alt="Jason's Photo">
+                  <img class="border-2 brc-white-tp1 radius-round" width="36" src="assets/image/user.jpg" alt="Jason's Photo">
                   <span class="bgc-warning radius-round border-2 brc-white p-1 position-tr mr-1px mt-1px"></span>
               </span>
           </button>
@@ -279,7 +288,7 @@
                               <div class="tab-pane mh-none pl-md-2" id="navbar-notif-tab-2" role="tabpanel">
                                   <div ace-scroll='{"ignore": "mobile", "height": 300, "smooth":true}'>
                                       <a href="#" class="d-flex mb-0 border-0 list-group-item list-group-item-action btn-h-lighter-secondary">
-                                          <img src="/resources/admin/assets/image/avatar/avatar.png" width="48" class="align-self-start border-2 brc-primary-m3 p-1px mr-2 radius-round" />
+                                          <img src="assets/image/avatar/avatar.png" width="48" class="align-self-start border-2 brc-primary-m3 p-1px mr-2 radius-round" />
                                           <div>
                                               <span class="text-blue-m1 font-bolder">Alex:</span>
                                               <span class="text-grey text-90">Ciao sociis natoque penatibus et auctor ...</span>
@@ -292,7 +301,7 @@
                                       </a>
                                        <hr class="my-1px brc-grey-l3" />
                                       <a href="#" class="d-flex mb-0 border-0 list-group-item list-group-item-action btn-h-lighter-secondary">
-                                          <img src="/resources/admin/assets/image/avatar/avatar3.png" width="48" class="align-self-start border-2 brc-primary-m3 p-1px mr-2 radius-round" />
+                                          <img src="assets/image/avatar/avatar3.png" width="48" class="align-self-start border-2 brc-primary-m3 p-1px mr-2 radius-round" />
                                           <div>
                                               <span class="text-blue-m1 font-bolder">Susan:</span>
                                               <span class="text-grey text-90">Vestibulum id ligula porta felis euismod ...</span>
@@ -305,7 +314,7 @@
                                       </a>
                                        <hr class="my-1px brc-grey-l3" />
                                       <a href="#" class="d-flex mb-0 border-0 list-group-item list-group-item-action btn-h-lighter-secondary">
-                                          <img src="/resources/admin/assets/image/avatar/avatar4.png" width="48" class="align-self-start border-2 brc-primary-m3 p-1px mr-2 radius-round" />
+                                          <img src="assets/image/avatar/avatar4.png" width="48" class="align-self-start border-2 brc-primary-m3 p-1px mr-2 radius-round" />
                                           <div>
                                               <span class="text-blue-m1 font-bolder">Bob:</span>
                                               <span class="text-grey text-90">Nullam quis risus eget urna mollis ornare ...</span>
@@ -318,7 +327,7 @@
                                       </a>
                                        <hr class="my-1px brc-grey-l3" />
                                       <a href="#" class="d-flex mb-0 border-0 list-group-item list-group-item-action btn-h-lighter-secondary">
-                                          <img src="/resources/admin/assets/image/avatar/avatar2.png" width="48" class="align-self-start border-2 brc-primary-m3 p-1px mr-2 radius-round" />
+                                          <img src="assets/image/avatar/avatar2.png" width="48" class="align-self-start border-2 brc-primary-m3 p-1px mr-2 radius-round" />
                                           <div>
                                               <span class="text-blue-m1 font-bolder">Kate:</span>
                                               <span class="text-grey text-90">Ciao sociis natoque eget urna mollis ornare ...</span>
@@ -331,7 +340,7 @@
                                       </a>
                                        <hr class="my-1px brc-grey-l3" />
                                       <a href="#" class="d-flex mb-0 border-0 list-group-item list-group-item-action btn-h-lighter-secondary">
-                                          <img src="/resources/admin/assets/image/avatar/avatar5.png" width="48" class="align-self-start border-2 brc-primary-m3 p-1px mr-2 radius-round" />
+                                          <img src="assets/image/avatar/avatar5.png" width="48" class="align-self-start border-2 brc-primary-m3 p-1px mr-2 radius-round" />
                                           <div>
                                               <span class="text-blue-m1 font-bolder">Fred:</span>
                                               <span class="text-grey text-90">Vestibulum id penatibus et auctor  ...</span>

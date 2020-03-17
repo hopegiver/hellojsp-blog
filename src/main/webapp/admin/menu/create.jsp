@@ -33,7 +33,8 @@ if(m.isPost() && f.validate()) {
 	adminmenu.item("target", f.get("target"));	
 	adminmenu.item("menu_depth", f.get("menu_depth"));
 	adminmenu.item("menu_url", f.get("menu_url"));
-	adminmenu.item("sort", f.get("sort"));	adminmenu.item("use_yn", f.get("use_yn"));
+	adminmenu.item("sort", f.get("sort"));	
+	adminmenu.item("use_yn", f.get("use_yn"));
 	adminmenu.item("reg_date", m.time("yyyyMMddHHmmss"));
 	adminmenu.item("status", 1);
 

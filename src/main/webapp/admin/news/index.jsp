@@ -21,6 +21,7 @@
         DataSet list = lm.getDataSet();
         while(list.next()) {
             list.put("reg_date", m.time("yyyy-MM-dd", list.s("reg_date")));
+            list.put("mod_date", m.time("yyyy-MM-dd", list.s("mod_date")));
         }
 
         //Step4
