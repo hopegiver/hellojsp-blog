@@ -25,12 +25,10 @@
 			<th class="d-none d-sm-table-cell">ID</th>
 			<th class="d-none d-sm-table-cell">Menu Type</th>
 			<th class="d-none d-sm-table-cell">Subject</th>
-			<th class="d-none d-sm-table-cell">Content</th>
 			<th class="d-none d-sm-table-cell">Photo Name</th>
 			<th class="d-none d-sm-table-cell">Video URL</th>
 			<th class="d-none d-sm-table-cell">Whether use or not</th>
-			<th class="d-none d-sm-table-cell">Registered date</th>
-			<th class="d-none d-sm-table-cell">Modified date</th>			
+			<th class="d-none d-sm-table-cell">Registered date</th>		
 			<th class="d-none d-sm-table-cell">Manage</th>
 		</tr>
 	</thead>
@@ -40,12 +38,10 @@
 			<td class='d-none d-sm-table-cell'><a href="read.jsp?id=${item.id}">${item.id}</a></td>
 			<td class='d-none d-sm-table-cell'><a href="read.jsp?id=${item.id}">${item.type}</a></td>
 			<td class='d-none d-sm-table-cell'><a href="read.jsp?id=${item.id}">${item.subject}</a></td>
-			<td class='d-none d-sm-table-cell'>${item.content}</td>
 			<td class='d-none d-sm-table-cell'>${item.photo_name}</td>
 			<td class='d-none d-sm-table-cell'>${item.video_url}</td>
 			<td class='d-none d-sm-table-cell'>${item.use_yn}</td>
 			<td class='d-none d-sm-table-cell'>${item.reg_date}</td>
-			<td class='d-none d-sm-table-cell'>${item.mod_date}</td>
 			<td>
 				<div class='d-none d-lg-flex text-muted'>
 					<a href="update.jsp?id=${item.id}" class="btn radius-1 btn-sm btn-brc-tp btn-outline-default btn-h-outline-primary btn-a-outline-primary btn-text-primary"><i class="fa fa-pencil-alt"></i></a>
