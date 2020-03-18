@@ -1,0 +1,64 @@
+<div class="page-header">
+	    <h1 class="page-title text-primary-d2">
+	        Banner
+	         <small class="page-info text-secondary-d2">
+	            <i class="fa fa-angle-double-right text-80"></i>
+	            Update Banner
+	        </small>
+	    </h1>
+	</div>
+	<div> 
+		<form name="form1" method="post" enctype="multipart/form-data">
+			<div class="form-group row">
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Title</label>
+		        </div>	
+		        <div class="col-sm-9">
+		            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="title" />
+		        </div>
+		    </div>
+			<div class="form-group row">
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Content</label>
+		        </div>	
+		        <div class="col-sm-9">
+		            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="content" />
+		        </div>
+		    </div>
+			<div class="form-group row">
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Whether use or not</label>
+		        </div>	
+		        <div class="col-sm-9">
+		            <label><input type="radio" class="radio-inline" name="use_yn" value="Y" checked/>Use</label>
+		            <label><input type="radio" class="radio-inline" name="use_yn" value="N"/>Not use</label>
+		        </div>
+		    </div>
+			<div class="form-group row">
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Photo</label>
+		        </div>	
+		        <div class="col-sm-9">
+		            <input type="file" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="att_file" />
+		            <!--#if($info.att_file_name != '')-->
+					${info.photo_name} <label class="label label-danger">Delete</label> <input type="checkbox" name="photo_del" value="Y">
+					<!--#end-->
+		        </div>
+		    </div>
+			<div class="form-group row">
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Sort</label>
+		        </div>	
+		        <div class="col-sm-9">
+		            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="sort" />
+		        </div>
+		    </div>
+		    <div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<input type="submit" value="Save" class="btn btn-primary">
+					<input type="button" value="Cancel" class="btn btn-default" onclick="history.go(-1)">
+				</div>
+			</div>
+		</form>
+		${form_script}
+	</div>

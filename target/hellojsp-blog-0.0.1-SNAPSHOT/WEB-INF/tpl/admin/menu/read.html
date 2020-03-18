@@ -1,0 +1,39 @@
+<div class="page-header">
+	<h1>Admin Menu</h1>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Article Info.</h3>
+	</div>
+	<div class="panel-body">
+		<dl class="dl-horizontal">
+			<dt>Menu Name</dt>
+			<dd>${info.menu_name}</dd>
+			<dt>Menu Category</dt>
+			<dd>${info.menu_cat}</dd>
+			<dt>Parent Id</dt>
+			<dd>${info.parent_id}</dd>
+			<dt>Menu Url</dt>
+			<dd>${info.menu_url}</dd>
+			<dt>Whether to use or not to use</dt>
+			<dd>${info.use_yn}</dd>
+			<dt>Target</dt>
+			<dd>${info.target}</dd>
+			<dt>Menu Depth</dt>
+			<dd>${info.menu_depth}</dd>
+			<dt>Sort</dt>
+			<dd>${info.sort}</dd>
+			<dt>Menu Type</dt>
+			<dd>${info.menu_type}</dd>
+			<dt>Date</dt>
+			<dd>${info.reg_date}</dd>
+			<dd>
+				<br>
+				<input type="button" value="Back" class="btn btn-default" onclick="history.go(-1)">
+				<a href="update.jsp?id=${info.id}" class="btn btn-primary">Edit</a>
+				<a href="delete.jsp?id=${info.id}" class="btn btn-danger">Delete</a>
+			</dd>
+		</dl>
+	</div>
+</div>
