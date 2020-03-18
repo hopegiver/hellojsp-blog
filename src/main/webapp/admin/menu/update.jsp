@@ -5,7 +5,6 @@ if(userId == null){
 	m.jsReplace("/admin/login.jsp", "window");
 }
 //Step1
-AdminMenuDao adminmenu = new AdminMenuDao();
 
 //Step2
 int id = m.reqInt("id");
@@ -14,10 +13,6 @@ if(id == 0) { m.jsError("Primary Key is required"); return; }
 //Step3
 DataSet info = adminmenu.find("id = " + id);
 if(!info.next()) { m.jsError("No Data"); return; } 
-
-DataSet parentMenu = adminmenu.find("status != -1 AND parent_id = 0", "*", "sort");
-
-DataSet subMenu = adminmenu.find("status != -1 AND parent_id != 0", "*", "sort");
 
 //Step4
 f.addElement("menu_name", info.s("menu_name"), "title:'menu_name', required:true");

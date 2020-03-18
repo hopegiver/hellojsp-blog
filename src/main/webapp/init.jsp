@@ -24,5 +24,13 @@ AdminMenuDao parentadminmenu = new AdminMenuDao();
 
 DataSet adminparentMenu = parentadminmenu .find("status != -1 AND parent_id = 0 AND menu_cat='admin'", "*", "sort");
 
+AdminMenuDao adminmenu = new AdminMenuDao();
+
+DataSet parentMenu = adminmenu.find("status != -1 AND parent_id = 0 AND menu_cat = 'user'", "*", "sort");
+
+DataSet subMenu = adminmenu.find("status != -1 AND parent_id != 0 AND menu_cat = 'user'", "*", "sort");
+
 p.setVar("adminparentMenu", adminparentMenu);
+p.setVar("parentMenu", parentMenu);
+p.setVar("subMenu", subMenu);
 %>

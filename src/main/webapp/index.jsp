@@ -1,10 +1,4 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
-
-        AdminMenuDao adminmenu = new AdminMenuDao();
-
-        DataSet parentMenu = adminmenu.find("status != -1 AND parent_id = 0 AND menu_cat = 'user'", "*", "sort");
-        
-        DataSet subMenu = adminmenu.find("status != -1 AND parent_id != 0 AND menu_cat = 'user'", "*", "sort");
 		
         BannerDao banner = new BannerDao();
 

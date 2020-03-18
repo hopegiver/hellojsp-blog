@@ -5,11 +5,6 @@ if(userId == null){
 	m.jsReplace("/admin/login.jsp", "window");
 }
 //Step1
-AdminMenuDao adminmenu = new AdminMenuDao();
-
-DataSet parentMenu = adminmenu.find("status != -1 AND parent_id = 0", "*", "sort");
-
-DataSet subMenu = adminmenu.find("status != -1 AND parent_id != 0", "*", "sort");
 
 //Step2
 f.addElement("menu_name", null, "title:'menu_name', required:true");

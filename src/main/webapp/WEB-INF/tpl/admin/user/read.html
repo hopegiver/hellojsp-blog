@@ -1,32 +1,55 @@
-<div class="page-header">
-	<h1>Admin user</h1>
-</div>
-
-<div class="panel panel-default">
-	<div class="page-header">
-		    <h1 class="page-title text-primary-d2">
-		        Users	         
-		    </h1>
-	<div class="panel-body">
-		<dl class="dl-horizontal">
-			<dt>Login Id</dt>
-			<dd>${info.login_id}</dd>
-			<dt>Password</dt>
-			<dd>${info.passwd}</dd>
-			<dt>Nick Name</dt>
-			<dd>${info.nickname}</dd>
-			<dt>Email</dt>
-			<dd>${info.email}</dd>
-			<dt>Photo</dt>
-			<dd>${info.photo_url}</dd>
-			<dt>Date</dt>
-			<dd>${info.reg_date}</dd>
-			<dd>
-				<br>
-				<input type="button" value="Back" class="btn btn-default" onclick="history.go(-1)">
+<div class="page-content container">
+  <div class="page-header">
+      <h1 class="page-title text-primary-d2">
+          User 
+           <small class="page-info text-secondary-d2">
+              <i class="fa fa-angle-double-right text-80"></i>
+              View
+          </small>
+      </h1>
+  </div>
+	
+  <div class="row">
+  	<div class="col-9">
+  		
+       	<form class="forms-sample" name="form1" method="post" enctype="multipart/form-data">
+        
+        <div class="form-group row">
+			<label class=" col-md-3">Login ID:</label>
+			<div class="col-md-9">${info.login_id}</div>
+		</div>
+		<div class="form-group row">
+			<label class=" col-md-3">Password:</label>
+			<div class="col-md-9">${info.passwd}</div>
+		</div>
+		<div class="form-group row">
+			<label class="control-label col-sm-3">Nick Name:</label>
+			<div class="col-sm-9">${info.nickname}</div>
+		</div>
+		<div class="form-group row">
+			<label class="control-label col-sm-3">Job:</label>
+			<div class="col-sm-9">${info.job}</div>
+		</div>
+		<div class="form-group row">
+			<label class="control-label col-sm-3">Email:</label>
+			<div class="col-sm-9">${info.email}</div>
+		</div>
+		<div class="form-group row">
+			<label class="control-label col-sm-3">Photo URL:</label>
+			<div class="col-sm-9">${info.photo_url}</div>
+		</div>		
+		<div class="form-group row">
+			<label class="control-label col-sm-3">Date:</label>
+			<div class="col-sm-9">${info.reg_date}</div>
+		</div>
+	</form>	
+          <br>
+          
+          <input type="button" value="Back" class="btn btn-default" onclick="history.go(-1)">
 				<a href="update.jsp?id=${info.id}" class="btn btn-primary">Edit</a>
-				<a href="delete.jsp?id=${info.id}" class="btn btn-danger">Delete</a>
-			</dd>
-		</dl>
-	</div>
+				<a href="delete.jsp?id=${info.id}" class="btn btn-danger">Delete</a>		
+  	</div>
+  </div>
+
+  <hr class="border-double my-4 brc-secondary-l2" />
 </div>

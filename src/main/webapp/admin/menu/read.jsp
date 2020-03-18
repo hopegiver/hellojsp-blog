@@ -5,7 +5,6 @@ if(userId == null){
     m.jsReplace("/admin/login.jsp", "window");
 }
 //Step1
-AdminMenuDao adminmenu = new AdminMenuDao();
 
 //Step2
 int id = m.reqInt("id");

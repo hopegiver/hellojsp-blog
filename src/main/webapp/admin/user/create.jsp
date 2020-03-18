@@ -11,6 +11,7 @@ AdminUserDao adminuser = new AdminUserDao();
 f.addElement("login_id", null, "title:'login_id', required:true");
 f.addElement("passwd", null, "title:'passwd', required:true");
 f.addElement("nickname", null, "title:'nickname'");
+f.addElement("job", null, "title:'job'");
 f.addElement("email", null, "title:'email'");
 f.addElement("photo_url", null, "title:'photo_url'");
 
@@ -20,6 +21,7 @@ if(m.isPost() && f.validate()) {
 	adminuser.item("login_id", f.get("login_id"));
 	adminuser.item("passwd", m.sha256(f.get("passwd")));
 	adminuser.item("nickname", f.get("nickname"));
+	adminuser.item("job", f.get("job"));
 	adminuser.item("email", f.get("email"));
 
 	File attFile = f.saveFile("photo_url");

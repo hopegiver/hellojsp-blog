@@ -19,6 +19,7 @@ if(!info.next()) { m.jsError("No Data"); return; }
 f.addElement("login_id", info.s("login_id"), "title:'login_id', required:true");
 f.addElement("passwd", info.s("passwd"), "title:'passwd', required:true");
 f.addElement("nickname", info.s("nickname"), "title:'nickname', required:true");
+f.addElement("email", info.s("email"), "title:'email'");
 f.addElement("email", info.s("email"), "title:'email', required:true");
 f.addElement("photo_url", info.s("photo_url"), "title:'photo_url'");
 
@@ -28,6 +29,7 @@ if(m.isPost() && f.validate()) {
 	adminuser.item("login_id", f.get("login_id"));
 	adminuser.item("passwd", f.get("passwd"));
 	adminuser.item("nickname", f.get("nickname"));
+	adminuser.item("job", f.get("job"));
 	adminuser.item("email", f.get("email"));
 
 	if("Y".equals(f.get("photo_url_del"))) {

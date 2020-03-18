@@ -170,11 +170,11 @@
                                     <ul class="navbar-nav mr-auto">                                       
                                         <!-- #foreach($pMenu in $parentMenu) -->
 		                                        <li class="nav-item dropdown">
-		                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${pMenu.menu_name}</a>	                                     
+		                                            <a class="nav-link dropdown-toggle" href="${pMenu.menu_url}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${pMenu.menu_name}</a>	                                     
 			                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 			                                            <!-- #foreach($sMenu in $subMenu) -->
 				                                            <!-- #if(${pMenu.id} == ${sMenu.parent_id}) -->
-				                                                <a class="dropdown-item" href="#">${sMenu.menu_name}</a>
+				                                                <a class="dropdown-item" href="${sMenu.menu_url}">${sMenu.menu_name}</a>
 				                                            <!-- #end -->
 				                                        <!-- #end -->
 			                                        </div>                                             

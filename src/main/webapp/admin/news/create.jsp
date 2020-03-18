@@ -6,8 +6,6 @@
 //Step1
 	NewsDao news = new NewsDao();
 
-	AdminMenuDao adminmenu = new AdminMenuDao();
-	
 	DataSet menuInfo = adminmenu.find("status != -1 and menu_cat='user'", "parent_id, menu_name", "sort");
 
 //Step2
@@ -26,7 +24,7 @@ if(m.isPost() && f.validate()) {
 	news.item("video_url", f.get("video_url"));
 	news.item("use_yn", f.get("use_yn"));
 
-	File attFile = f.saveFile("photo_name");
+	File attFile = f.saveFile("photo_name", UploadPath);
 	if(attFile != null) {
 		news.item("photo_name", f.getFileName("photo_name"));
 	}
