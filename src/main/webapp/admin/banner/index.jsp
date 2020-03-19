@@ -1,11 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
-
-	if(userId == null){
-		m.jsAlert("Need to login");
-		m.jsReplace("/admin/login.jsp", "window");
-	}
-//Step1
-	BannerDao banner = new BannerDao();
+<%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
 
 //Step2
 f.addElement("s_keyword", null, null);
@@ -28,6 +21,10 @@ while(list.next()) {
 
 //Step4
 //p.setDebug(out);
+String pagetitle = "Banner"; 
+String pageaction = "list"; 
+p.setVar("pagetitle", pagetitle);
+p.setVar("pageaction", pageaction);
 p.setLayout("blog");
 p.setBody("admin/banner/index");
 p.setVar("list", list);

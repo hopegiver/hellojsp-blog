@@ -1,11 +1,6 @@
-<%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
-	if(userId == null){
-		m.jsAlert("Need to login");
-		m.jsReplace("/admin/login.jsp", "window");
-	}
-//Step1
-	NewsDao news = new NewsDao();
+<%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
 
+//Step1
 	DataSet menuInfo = adminmenu.find("status != -1 and menu_cat='user'", "parent_id, menu_name", "sort");
 
 //Step2
@@ -24,9 +19,9 @@ if(m.isPost() && f.validate()) {
 	news.item("video_url", f.get("video_url"));
 	news.item("use_yn", f.get("use_yn"));
 
-	File attFile = f.saveFile("photo_name", UploadPath);
+	File attFile = f.saveFile("photo_name");
 	if(attFile != null) {
-		news.item("photo_name", f.getFileName("photo_name"));
+		news.item("photo_name", attFile.getName());
 	}
 	news.item("reg_date", m.time("yyyyMMddHHmmss"));
 	news.item("status", 1);
@@ -43,6 +38,10 @@ if(m.isPost() && f.validate()) {
 
 //Step4
 //p.setDebug(out);
+String pagetitle = "News"; 
+String pageaction = "add"; 
+p.setVar("pagetitle", pagetitle);
+p.setVar("pageaction", pageaction);
 p.setLayout("blog");
 p.setBody("admin/news/create");
 p.setVar("form_script", f.getScript());

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-    
+    		<base href="./" />
     <title>Dashboard - The Gazette Admin</title>
     
     <!-- include common vendor stylesheets -->
@@ -17,19 +17,16 @@
     <link rel="stylesheet" type="text/css" href="/resources/admin/node_modules/@fortawesome/fontawesome-free/css/solid.css">
     <!-- <link rel="stylesheet" type="text/css" href="/resources/admin/admin_panel.css"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+ 
+    <!-- include vendor stylesheets used in "Dashboard" page. see "application/views/default/pages/partials/dashboard/@vendor-stylesheets.hbs" -->       
+    <link rel="stylesheet" type="text/css" href="/resources/admin/dist/css/ace-font.css">
     
-    
-    
-    <!-- include vendor stylesheets used in "Dashboard" page. see "application/views/default/pages/partials/dashboard/@vendor-stylesheets.hbs" -->
-    
-    
-        <link rel="stylesheet" type="text/css" href="/resources/admin/dist/css/ace-font.css">
+    <!-- include vendor stylesheets used in "Treeview" page. see "application/views/default/pages/partials/treeview/@vendor-stylesheets.hbs" -->
+    <link rel="stylesheet" type="text/css" href="resources/admin/node_modules/jqtree/jqtree.css">
         
     <!-- include vendor stylesheets used in "Basic Tables" page. see "application/views/default/pages/partials/tables-basic/@vendor-stylesheets.hbs" -->
     <link rel="stylesheet" type="text/css" href="/resources/admin/node_modules/basictable/basictable.css">
-    
-    
+      
     <link rel="stylesheet" type="text/css" href="/resources/admin/dist/css/ace.css">
  	<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
   	<!-- 	<link rel="stylesheet" href="resources/admin/css/custom.css"> -->
@@ -71,7 +68,7 @@
           </div><!-- /.navbar-intro -->
       
       
-          <div class="navbar-content">
+          <!-- <div class="navbar-content">
       
               <button class="navbar-toggler py-2" type="button" data-toggle="collapse" data-target="#navbarSearch" aria-controls="navbarSearch" aria-expanded="false" aria-label="Toggle navbar search">
                   <i class="fa fa-search text-white text-90 py-1"></i>
@@ -84,7 +81,7 @@
                   </div>
               </div>
               
-          </div><!-- .navbar-content -->
+          </div>.navbar-content -->
       
       
           <!-- mobile #navbarMenu toggler button -->
@@ -101,7 +98,7 @@
             <div class="navbar-nav">
               <ul class="nav">
       
-                  <li class="nav-item dropdown dropdown-mega">
+<!--                   <li class="nav-item dropdown dropdown-mega">
                       <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                           <i class="fa fa-list-alt mr-2 d-lg-none"></i>
                           Mega
@@ -132,7 +129,7 @@
                                     </a>
                                     <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
                                 </div>
-                            </div><!-- .col:mega links -->
+                            </div>.col:mega links
                           
                             <div class="bgc-white col-lg-4 col-12 p-4">
                               <h5 class="text-blue-m1">
@@ -170,7 +167,7 @@
                                 </div>
                              </div>
                             
-                            </div><!-- .col:mega notifications -->
+                            </div>.col:mega notifications
                           
                                       
                             <div class="col-lg-4 col-12 p-4 dropdown-clickable">
@@ -197,9 +194,9 @@
                                     <button type="button" class="btn btn-smd btn-wide btn-primary text-110">Send</button>
                                   </div>
                                 </form>
-                            </div><!-- .col:mega contact -->               
+                            </div>.col:mega contact               
                                   
-                          </div><!-- .row: mega -->
+                          </div>.row: mega
                           
                           
                           <div class="row mx-0 order-first order-lg-last bgc-primary-l4 border-t-1 brc-default-m4">
@@ -222,14 +219,14 @@
                           		 </button>
                                
                             </div>
-                          </div><!-- .row:megamenu big buttons -->                </div>
+                          </div>.row:megamenu big buttons                </div>
                   </li>
       
                   <li class="nav-item dropdown dropdown-mega">
                       <a class="nav-link dropdown-toggle pl-lg-3 pr-lg-4" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                           <i class="fa fa-bell text-110 icon-animated-bell mr-lg-2"></i>
       
-                          <span class="d-inline-block d-lg-none ml-2">Notifications</span><!-- show only on mobile -->
+                          <span class="d-inline-block d-lg-none ml-2">Notifications</span>show only on mobile
                           <span id="id-navbar-badge1" class="badge badge-sm badge-warning radius-round text-80 border-1 brc-white-tp5">3</span>
       
                           <i class="caret fa fa-angle-left d-block d-lg-none"></i>
@@ -249,7 +246,7 @@
                                       <span class="d-n-active">Messages</span>
                                   </a>
                               </li>
-                          </ul><!-- .nav-tabs -->
+                          </ul>.nav-tabs
                           
                               
                           <div class="tab-content tab-sliding p-0">
@@ -282,7 +279,7 @@
                                       <i class="ml-2 fa fa-arrow-right text-muted"></i>
                                   </a>
                           
-                              </div><!-- .tab-pane : notifications -->
+                              </div>.tab-pane : notifications
                           
                           
                               <div class="tab-pane mh-none pl-md-2" id="navbar-notif-tab-2" role="tabpanel">
@@ -352,14 +349,14 @@
                                           </div>
                                       </a>
                                       
-                                  </div><!-- ace-scroll -->
+                                  </div>ace-scroll
                           
                                   <hr class="my-1px brc-grey-l2 border-double" />
                                   <a href="html/inbox.html" class="mb-0 py-3 border-0 list-group-item text-blue-m2 text-uppercase text-center text-85 font-bold">
                                       See All Messages
                                       <i class="ml-2 fa fa-arrow-right text-muted"></i>
                                   </a>
-                              </div><!-- .tab-pane : messages -->
+                              </div>.tab-pane : messages
                           
                           </div>                </div>
                   </li>
@@ -368,7 +365,7 @@
                       <a class="nav-link dropdown-toggle pl-lg-3 pr-lg-4" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                           <i class="fa fa-flask text-110 icon-animated-vertical mr-lg-1"></i>
       
-                          <span class="d-inline-block d-lg-none ml-2">Tasks</span><!-- show only on mobile -->
+                          <span class="d-inline-block d-lg-none ml-2">Tasks</span>show only on mobile
                           <span id="id-navbar-badge2" class="badge badge-sm text-90 text-success-l4">+2</span>
       
                           <i class="caret fa fa-angle-left d-block d-lg-none"></i>
@@ -430,7 +427,7 @@
                             <span class="text-85 text-600 text-uppercase">See All Tasks</span>
                             <i class="ml-2 fa fa-arrow-right text-muted"></i>
                           </a>                </div>
-                  </li>
+                  </li> -->
       
       
                   <li class="nav-item dropdown order-first order-lg-last">
@@ -465,7 +462,7 @@
       
                           <div class="dropdown-divider brc-primary-l2"></div>
       
-                          <a class="dropdown-item btn btn-outline-grey btn-h-lighter-secondary btn-a-lighter-secondary" href="/admin/login.jsp">
+                          <a class="dropdown-item btn btn-outline-grey btn-h-lighter-secondary btn-a-lighter-secondary" href="/admin/logout.jsp">
                               <i class="fa fa-power-off text-warning-d1 text-105 mr-1"></i>
                               Logout
                           </a>

@@ -1,23 +1,41 @@
 <div class="page-header">
     <h1 class="page-title text-primary-d2">
-        Admin Menu
+        ${pagetitle}
          <small class="page-info text-secondary-d2">
             <i class="fa fa-angle-double-right text-80"></i>
-            Add menu
+            ${pageaction}
         </small>
     </h1>
 </div>
-<div class="clearfix">
-	<div class="float-md-right">
-		<form name="form1" method="get" class="form-inline">
-		<input type="text" name="s_keyword" class="form-control">
-		<input class="btn btn-default" type="submit" value="Search">
-		</form>
-		${form_script}
-	</div>
-	<div class="float-md-left">
-		<a href="create.jsp" class="btn btn-small btn-primary">New</a>
-	</div>
+
+<div class="row" style="margin-bottom: 20px;">
+    <div class="col-12 col-md-6 mt-3 mt-md-0">
+        <div class="card border-0">
+            <div class="card-header bgc-default-d2">
+                <h3 class="card-title text-130 text-white">
+                    Choose Menu
+                </h3>
+            </div>
+            <div class="card-body bgc-white border-1 border-t-0 brc-default-m2">
+                <div class="jqtree" id="id-jqtree-categories"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="margin-bottom: 20px;"> 
+	<div class="col-sm-12">
+		<div class="float-left">
+	   	   <a href="create.jsp" class="btn btn-small btn-primary">New</a>
+	    </div>
+	    <div class="float-right">
+	    	<form name="form1" method="get" class="form-inline">
+				<input type="text" name="s_keyword" class="form-control">
+				<input class="btn btn-primary" type="submit" value="Search">
+			</form>
+			${form_script}
+		</div>
+	</div>     
 </div>
 <table id="simple-table" class="table table-bordered table-bordered-x table-hover text-dark-m2">
 	<thead>
@@ -29,43 +47,110 @@
 			<th class="d-none d-sm-table-cell">Menu_url</th>
 			<th class="d-none d-sm-table-cell">Menu_type</th>
 			<th class="d-none d-sm-table-cell">Sort</th>
-			<th class="d-none d-sm-table-cell">Whether use or not</th>
+			<th class="d-none d-sm-table-cell">To use</th>
 			<th class="d-none d-sm-table-cell">Manage</th>
 		</tr>
 	</thead>
 	<tbody class="bgc">
-		<!--#foreach($item in $list)-->
-		<tr>
-			<td class='d-none d-sm-table-cell'><a href="read.jsp?id=${item.id}">${item.id}</a></td>
-			<td class='d-none d-sm-table-cell'><a href="read.jsp?id=${item.id}">${item.menu_name}</a></td>
-			<td class='d-none d-sm-table-cell'>${item.menu_cat}</td>
-			<td class='d-none d-sm-table-cell'>${item.parent_id}</td>
-			<td class='d-none d-sm-table-cell'>${item.menu_url}</td>
-			<td class='d-none d-sm-table-cell'>${item.menu_type}</td>
-			<td class='d-none d-sm-table-cell'>${item.sort}</td>
-			<td class='d-none d-sm-table-cell'>${item.use_yn}</td>
-			<td>
-				<div class='d-none d-lg-flex text-muted'>
-					<a href="update.jsp?id=${item.id}" class="btn radius-1 btn-sm btn-brc-tp btn-outline-default btn-h-outline-primary btn-a-outline-primary btn-text-primary"><i class="fa fa-pencil-alt"></i></a>
-					<a href="delete.jsp?id=${item.id}" class="btn radius-1 btn-sm btn-brc-tp btn-outline-default btn-h-outline-danger btn-a-outline-danger btn-text-danger"><i class="fa fa-trash-alt"></i></a>
-				</div>
-
-				<div class='dropdown d-inline-block d-lg-none dd-backdrop dd-backdrop-none-md'>
-					<a href='#' class='btn btn-outline-warning btn-xs radius-round dropdown-toggle' data-toggle="dropdown"><i class="fa fa-cog text-110"></i></a>
-					<div class="dropdown-menu dd-slide-up dd-slide-none-md"><div class="dropdown-inner">
-						<a href="update.jsp?id=${item.id}" class="dropdown-item"><i class="fa fa-pencil-alt text-blue-m1 mr-1 bgc-white-tp1 radius-round p-2 w-4"></i>Edit</a>
-						<a href="delete.jsp?id=${item.id}" class="dropdown-item"><i class="fa fa-trash text-danger-m1 mr-1 bgc-white-tp1 radius-round p-2 w-4"></i>Delete</a>
-					</div></div>
-				</div>
-			</td>
-		</tr>
-		<!--#end-->
+		#foreach($pMenu in $parentMenu)
+          #if(${pMenu.parent_id} == 0)
+           <tr>
+               <td class='d-none d-sm-table-cell'>${pMenu.id}</td>
+			   <td class='d-none d-sm-table-cell'>${pMenu.menu_name}</td>
+			   <td class='d-none d-sm-table-cell'>${pMenu.menu_cat}</td>
+               <td>
+                  #foreach($parent in $parent)
+                      #if(${parent.id} == ${pMenu.parent_id})
+                           ${parent.menu_name}
+                      #end
+                  #end
+               </td>
+               <td class='d-none d-sm-table-cell'>${pMenu.menu_url}</td>
+			   <td class='d-none d-sm-table-cell'>${pMenu.menu_type}</td>
+			   <td class='d-none d-sm-table-cell'>${pMenu.sort}</td>
+			   <td class='d-none d-sm-table-cell'>${pMenu.use_yn}</td>
+               <td>
+					<div class='d-none d-lg-flex text-muted'>
+						<a href="update.jsp?id=${item.id}" class="btn radius-1 btn-sm btn-brc-tp btn-outline-default btn-h-outline-primary btn-a-outline-primary btn-text-primary"><i class="fa fa-pencil-alt"></i></a>
+						<a href="delete.jsp?id=${item.id}" class="btn radius-1 btn-sm btn-brc-tp btn-outline-default btn-h-outline-danger btn-a-outline-danger btn-text-danger"><i class="fa fa-trash-alt"></i></a>
+					</div>
+	
+					<div class='dropdown d-inline-block d-lg-none dd-backdrop dd-backdrop-none-md'>
+						<a href='#' class='btn btn-outline-warning btn-xs radius-round dropdown-toggle' data-toggle="dropdown"><i class="fa fa-cog text-110"></i></a>
+						<div class="dropdown-menu dd-slide-up dd-slide-none-md"><div class="dropdown-inner">
+							<a href="update.jsp?id=${item.id}" class="dropdown-item"><i class="fa fa-pencil-alt text-blue-m1 mr-1 bgc-white-tp1 radius-round p-2 w-4"></i>Edit</a>
+							<a href="delete.jsp?id=${item.id}" class="dropdown-item"><i class="fa fa-trash text-danger-m1 mr-1 bgc-white-tp1 radius-round p-2 w-4"></i>Delete</a>
+						</div></div>
+					</div>
+				</td>
+           </tr>
+           #end
+          	#foreach($sMenu in $subMenu)
+               #if(${pMenu.id} == ${sMenu.parent_id})
+		            <tr style="background-color: #c9cacd">
+		               <td class='d-none d-sm-table-cell'>${sMenu.id}</td>
+					   <td class='d-none d-sm-table-cell'>${sMenu.menu_name}</td>
+					   <td class='d-none d-sm-table-cell'>${sMenu.menu_cat}</td>
+		               <td>
+		                  #foreach($parent in $parent) -->
+		                       #if(${parent.id} == ${sMenu.parent_id})
+		                           ${parent.menu_name}
+		                       #end
+		                  #end
+		               </td>
+		               <td class='d-none d-sm-table-cell'>${sMenu.menu_url}</td>
+					   <td class='d-none d-sm-table-cell'>${sMenu.menu_type}</td>
+					   <td class='d-none d-sm-table-cell'>${sMenu.sort}</td>
+					   <td class='d-none d-sm-table-cell'>${sMenu.use_yn}</td>
+		               <td>
+							<div class='d-none d-lg-flex text-muted'>
+								<a href="update.jsp?id=${item.id}" class="btn radius-1 btn-sm btn-brc-tp btn-outline-default btn-h-outline-primary btn-a-outline-primary btn-text-primary"><i class="fa fa-pencil-alt"></i></a>
+								<a href="delete.jsp?id=${item.id}" class="btn radius-1 btn-sm btn-brc-tp btn-outline-default btn-h-outline-danger btn-a-outline-danger btn-text-danger"><i class="fa fa-trash-alt"></i></a>
+							</div>
+			
+							<div class='dropdown d-inline-block d-lg-none dd-backdrop dd-backdrop-none-md'>
+								<a href='#' class='btn btn-outline-warning btn-xs radius-round dropdown-toggle' data-toggle="dropdown"><i class="fa fa-cog text-110"></i></a>
+								<div class="dropdown-menu dd-slide-up dd-slide-none-md"><div class="dropdown-inner">
+									<a href="update.jsp?id=${item.id}" class="dropdown-item"><i class="fa fa-pencil-alt text-blue-m1 mr-1 bgc-white-tp1 radius-round p-2 w-4"></i>Edit</a>
+									<a href="delete.jsp?id=${item.id}" class="dropdown-item"><i class="fa fa-trash text-danger-m1 mr-1 bgc-white-tp1 radius-round p-2 w-4"></i>Delete</a>
+								</div></div>
+							</div>
+						</td>
+                   </tr>
+               #end
+           #end
+       #end
 	</tbody>
 </table>
 <div class="pagination justify-content-center">
 	${pagebar}
 </div>
 
+<script>
+var category = "${parentMenu}";
+var categoryData = [
+	
+	#foreach($pMenu in $parentMenu)
+    #if(${pMenu.parent_id} == 0)
+        {
+    id: ${pMenu.id},
+    name: "${pMenu.menu_name}",
+    children: [
+        #foreach($sMenu in $subMenu)
+        #if(${pMenu.id} == ${sMenu.parent_id} && ${sMenu.parent_id} > 0)
+        {
+            id: ${sMenu.id},
+            name: "${sMenu.menu_name}",
+        },
+    #end
+    #end
+    ]
+        },
+    #end
+#end
+];
 
+
+</script>
 
 

@@ -1,10 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
-
-if(userId == null){
-	m.jsAlert("Need to login");
-	m.jsReplace("/admin/login.jsp", "window");
-}
-//Step1
+<%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
 
 //Step2
 int id = m.reqInt("id");
@@ -49,11 +43,13 @@ if(m.isPost() && f.validate()) {
 }
 
 //Step6
+String pagetitle = "Menu"; 
+String pageaction = "update"; 
+p.setVar("pagetitle", pagetitle);
+p.setVar("pageaction", pageaction);
 p.setLayout("blog");
 p.setBody("admin/menu/update");
 p.setVar("info", info);
-p.setVar("parentMenu", parentMenu);
-p.setVar("subMenu", subMenu);
 p.setVar("form_script", f.getScript());
 p.print();
 

@@ -1,9 +1,5 @@
-<%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
-
-     if(userId != null){ 
-        //Step1
-        AdminUserDao adminuser = new AdminUserDao();
-
+<%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
+m.p("USER_ID : " + userId);
         //Step2
         f.addElement("s_keyword", null, null);
 
@@ -24,18 +20,16 @@
         }
 
         //Step4
-
-        p.setLayout("blog");
+		String pagetitle = "User"; 
+		String pageaction = "list"; 
+		p.setVar("pagetitle", pagetitle);
+		p.setVar("pageaction", pageaction);
+		p.setLayout("blog");
         p.setBody("admin/user/index");
         p.setVar("list", list);
         p.setVar("total_cnt", lm.getTotalNum());
         p.setVar("pagebar", lm.getPaging());
         p.setVar("form_script", f.getScript());
         p.print();
-
-       } else {
-        m.jsAlert("Need to login");
-        m.jsReplace("/admin/login.jsp", "window");
-    } 
 
 %>

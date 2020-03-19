@@ -1,31 +1,32 @@
 <div class="page-header">
     <h1 class="page-title text-primary-d2">
-        Users
+        ${pagetitle}
          <small class="page-info text-secondary-d2">
             <i class="fa fa-angle-double-right text-80"></i>
-        Admin users
+        ${pageaction}
         </small>
     </h1>
 </div>
-<div class="clearfix">
-	<div class="float-md-right">
-		<form name="form1" method="get" class="form-inline">
-		<input type="text" name="s_keyword" class="form-control">
-		<input class="btn btn-default" type="submit" value="Search">
-		</form>
-		${form_script}
-	</div>
-	<div class="float-md-left">
-		<a href="create.jsp" class="btn btn-small btn-primary">New</a>
-	</div>
+<div class="row"> 
+	<div class="col-sm-12">
+		<div class="float-left">
+	   	   <a href="create.jsp" class="btn btn-small btn-primary">New</a>
+	    </div>
+	    <div class="float-right">
+	    	<form name="form1" method="get" class="form-inline">
+				<input type="text" name="s_keyword" class="form-control">
+				<input class="btn btn-primary" type="submit" value="Search">
+			</form>
+			${form_script}
+		</div>
+	</div>     
 </div>
 <table id="simple-table" class="table table-bordered table-bordered-x table-hover text-dark-m2">
 	<thead>
 		<tr>
 			<th class="d-none d-sm-table-cell">ID</th>
-			<th class="d-none d-sm-table-cell">Login ID</th>
+			<th class="d-none d-sm-table-cell">User ID</th>
 			<th class="d-none d-sm-table-cell">Nickname</th>
-			<th class="d-none d-sm-table-cell">Password</th>
 			<th class="d-none d-sm-table-cell">Email</th>
 			<th class="d-none d-sm-table-cell">Manage</th>
 		</tr>
@@ -33,10 +34,9 @@
 	<tbody class="bgc">
 		<!--#foreach($item in $list)-->
 		<tr>
-			<td class="d-none d-sm-table-cell"><a href="read.jsp?id=${item.id}">${item.id}</a></td>
-			<td class="d-none d-sm-table-cell"><a href="read.jsp?id=${item.id}">${item.login_id}</a></td>
+			<td class="d-none d-sm-table-cell">${item.id}</td>
+			<td class="d-none d-sm-table-cell">${item.login_id}</td>
 			<td class="d-none d-sm-table-cell">${item.nickname}</td>
-			<td class="d-none d-sm-table-cell">${item.passwd}</a></td>
 			<td class="d-none d-sm-table-cell">${item.email}</td>
 			<td>
 				<div class='d-none d-lg-flex text-muted'>

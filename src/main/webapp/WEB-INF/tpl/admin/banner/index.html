@@ -1,32 +1,33 @@
 <div class="page-header">
     <h1 class="page-title text-primary-d2">
-        Users
+        ${pagetitle}
          <small class="page-info text-secondary-d2">
             <i class="fa fa-angle-double-right text-80"></i>
-        Admin users
+        ${pageaction}
         </small>
     </h1>
 </div>
-<div class="clearfix">
-	<div class="float-md-right">
-		<form name="form1" method="get" class="form-inline">
-		<input type="text" name="s_keyword" class="form-control">
-		<input class="btn btn-default" type="submit" value="Search">
-		</form>
-		${form_script}
-	</div>
-	<div class="float-md-left">
-		<a href="create.jsp" class="btn btn-small btn-primary">New</a>
-	</div>
+<div class="row" style="margin-bottom: 20px;"> 
+	<div class="col-sm-12">
+		<div class="float-left">
+	   	   <a href="create.jsp" class="btn btn-small btn-primary">New</a>
+	    </div>
+	    <div class="float-right">
+	    	<form name="form1" method="get" class="form-inline">
+				<input type="text" name="s_keyword" class="form-control">
+				<input class="btn btn-primary" type="submit" value="Search">
+			</form>
+			${form_script}
+		</div>
+	</div>     
 </div>
 <table id="simple-table" class="table table-bordered table-bordered-x table-hover text-dark-m2">
 	<thead>
 		<tr>
 			<th class="d-none d-sm-table-cell">ID</th>
 			<th class="d-none d-sm-table-cell">Title</th>
-			<th class="d-none d-sm-table-cell">Content</th>
 			<th class="d-none d-sm-table-cell">Photo</th>
-			<th class="d-none d-sm-table-cell">Whether use or not</th>
+			<th class="d-none d-sm-table-cell">To use</th>
 			<th class="d-none d-sm-table-cell">Date</th>
 			<th class="d-none d-sm-table-cell">Manage</th>
 		</tr>
@@ -34,10 +35,9 @@
 	<tbody class="bgc">
 		<!--#foreach($item in $list)-->
 		<tr>
-			<td class="d-none d-sm-table-cell"><a href="read.jsp?id=${item.id}">${item.id}</a></td>
-			<td class="d-none d-sm-table-cell"><a href="read.jsp?id=${item.id}">${item.title}</a></td>
-			<td class="d-none d-sm-table-cell">${item.content}</td>
-			<td class="d-none d-sm-table-cell"><a href="download.jsp?id=${item.id}">${item.photo_name}</a></td>
+			<td class="d-none d-sm-table-cell">${item.id}</td>
+			<td class="d-none d-sm-table-cell">${item.title}</td>
+			<td class="d-none d-sm-table-cell"><img src="/uploads/files/${item.photo_url}" alt="image" width="100"></td>
 			<td class="d-none d-sm-table-cell">${item.use_yn}</td>
 			<td class="d-none d-sm-table-cell">${item.reg_date}</td>
 			<td>

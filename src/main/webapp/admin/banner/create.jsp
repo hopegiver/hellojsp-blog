@@ -1,11 +1,6 @@
-<%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
+<%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
 
-	if(userId == null){
-		m.jsAlert("Need to login");
-		m.jsReplace("/admin/login.jsp", "window");
-	}
 //Step1
-BannerDao banner = new BannerDao();
 
 DataSet bannerList = banner.find("status != -1 AND use_yn='Y'", "*", "sort");
 
@@ -43,7 +38,11 @@ if(m.isPost() && f.validate()) {
 }
 
 //Step4
-p.setDebug(out);
+//p.setDebug(out);
+String pagetitle = "Banner"; 
+String pageaction = "add"; 
+p.setVar("pagetitle", pagetitle);
+p.setVar("pageaction", pageaction);
 p.setLayout("blog");
 p.setBody("admin/banner/create");
 p.setVar("bannerList", bannerList);

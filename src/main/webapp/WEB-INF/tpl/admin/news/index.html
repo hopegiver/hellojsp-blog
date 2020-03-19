@@ -1,33 +1,35 @@
 <div class="page-header">
     <h1 class="page-title text-primary-d2">
-        News
+        ${pagetitle}
          <small class="page-info text-secondary-d2">
             <i class="fa fa-angle-double-right text-80"></i>
-            News
+            ${pageaction}
         </small>
     </h1>
 </div>
-<div class="clearfix">
-	<div class="float-md-right">
-		<form name="form1" method="get" class="form-inline">
-		<input type="text" name="s_keyword" class="form-control">
-		<input class="btn btn-default" type="submit" value="Search">
-		</form>
-		${form_script}
-	</div>
-	<div class="float-md-left">
-		<a href="create.jsp" class="btn btn-small btn-primary">New</a>
-	</div>
+<div class="row" style="margin-bottom: 20px;"> 
+	<div class="col-sm-12">
+		<div class="float-left">
+	   	   <a href="create.jsp" class="btn btn-small btn-primary">New</a>
+	    </div>
+	    <div class="float-right">
+	    	<form name="form1" method="get" class="form-inline">
+				<input type="text" name="s_keyword" class="form-control">
+				<input class="btn btn-primary" type="submit" value="Search">
+			</form>
+			${form_script}
+		</div>
+	</div>     
 </div>
 <table id="simple-table" class="table table-bordered table-bordered-x table-hover text-dark-m2">
 	<thead>
 		<tr>
 			<th class="d-none d-sm-table-cell">ID</th>
-			<th class="d-none d-sm-table-cell">Menu Type</th>
+			<th class="d-none d-sm-table-cell">News Type</th>
 			<th class="d-none d-sm-table-cell">Subject</th>
-			<th class="d-none d-sm-table-cell">Photo Name</th>
-			<th class="d-none d-sm-table-cell">Video URL</th>
-			<th class="d-none d-sm-table-cell">Whether use or not</th>
+			<th class="d-none d-sm-table-cell">Photo</th>
+			<th class="d-none d-sm-table-cell">Video</th>
+			<th class="d-none d-sm-table-cell">To use</th>
 			<th class="d-none d-sm-table-cell">Registered date</th>		
 			<th class="d-none d-sm-table-cell">Manage</th>
 		</tr>
@@ -35,11 +37,23 @@
 	<tbody class="bgc">
 		<!--#foreach($item in $list)-->
 		<tr>
-			<td class='d-none d-sm-table-cell'><a href="read.jsp?id=${item.id}">${item.id}</a></td>
-			<td class='d-none d-sm-table-cell'><a href="read.jsp?id=${item.id}">${item.type}</a></td>
-			<td class='d-none d-sm-table-cell'><a href="read.jsp?id=${item.id}">${item.subject}</a></td>
-			<td class='d-none d-sm-table-cell'>${item.photo_name}</td>
-			<td class='d-none d-sm-table-cell'>${item.video_url}</td>
+			<td class='d-none d-sm-table-cell'>${item.id}</td>
+			<td class='d-none d-sm-table-cell'>${item.type}</td>
+			<td class='d-none d-sm-table-cell d-inline-block text-truncate' style='max-width: 150px;'>${item.subject}</td>
+			<td class='d-none d-sm-table-cell text-center'>
+				#if(${item.photo_name} != "")
+					<img src="/uploads/files/${item.photo_name}" alt="image" width="100">
+				#else
+					-
+				#end
+			</td>
+			<td class='d-none d-sm-table-cell text-center'>
+				#if(${item.video_url} != "")
+					<a class="btn btn-blue" style="color: #fff" onclick="myFunction('${item.video_url}')">Video</a>
+				#else
+						-
+				#end
+			</td>
 			<td class='d-none d-sm-table-cell'>${item.use_yn}</td>
 			<td class='d-none d-sm-table-cell'>${item.reg_date}</td>
 			<td>
@@ -63,3 +77,18 @@
 <div class="pagination justify-content-center">
 	${pagebar}
 </div>
+<script>
+$(function(){
+	$(".news-subject").each(function () {
+	    len=$(this).text().length;
+	    str= $(this).text().substr(0,50);
+	    lastIndexOf = str.lastIndexOf(" "); 
+	    if(len>80) {
+	        $(this).text(str.substr(0, lastIndexOf) + '…');
+	    }
+	});
+});
+function myFunction(url) {
+	var myWindow = window.open(url, "", "width=700, height=500");
+}
+</script>

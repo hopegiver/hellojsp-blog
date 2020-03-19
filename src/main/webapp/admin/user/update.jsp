@@ -1,11 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
-
-if(userId == null){
-	m.jsAlert("Need to login");
-	m.jsReplace("/admin/login.jsp", "window");
-}
-//Step1
-AdminUserDao adminuser = new AdminUserDao();
+<%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
 
 //Step2
 int id = m.reqInt("id");
@@ -27,7 +20,7 @@ f.addElement("photo_url", info.s("photo_url"), "title:'photo_url'");
 if(m.isPost() && f.validate()) {
 
 	adminuser.item("login_id", f.get("login_id"));
-	adminuser.item("passwd", f.get("passwd"));
+	adminuser.item("passwd", m.sha256(f.get("passwd")));
 	adminuser.item("nickname", f.get("nickname"));
 	adminuser.item("job", f.get("job"));
 	adminuser.item("email", f.get("email"));
@@ -57,6 +50,10 @@ if(m.isPost() && f.validate()) {
 }
 
 //Step6
+String pagetitle = "User"; 
+String pageaction = "update"; 
+p.setVar("pagetitle", pagetitle);
+p.setVar("pageaction", pageaction);
 p.setLayout("blog");
 p.setBody("admin/user/update");
 p.setVar("info", info);

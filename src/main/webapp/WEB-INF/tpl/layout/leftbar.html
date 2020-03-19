@@ -6,7 +6,7 @@
           
            <div class="ace-scroll flex-grow-1" ace-scroll>
             
-            <div class="sidebar-section my-2">
+            <!-- <div class="sidebar-section my-2">
              <div class="sidebar-section-item fadeable-left">
                
                  <div class="fadeinable sidebar-shortcuts-mini">
@@ -48,29 +48,30 @@
                      <input type="text" class="sidebar-search-input pl-4 pr-3 mr-n2" maxlength="60" placeholder="Search ..." aria-label="Search" aria-describedby="basic-search" />
                      <a href="#"><i class="fa fa-microphone text-muted ml-n1"></i></a>
                    </div>
-             </div>  </div>
+             </div>  
+         </div> -->
           
             <ul class="nav has-active-border" role="navigation" aria-label="Main">
                 
                
-               <li class="nav-item-caption">
+               <!-- <li class="nav-item-caption">
                		<span class="fadeable pl-3">MAIN</span>
                		<span class="fadeinable mt-n2 text-125">&hellip;</span>
-               		<!--
+               		
                			OR something like the following (with .hideable text)
-               		-->
-               		<!--
+               		
+               		
                			<div class="hideable">
                				<span class="pl-3">MAIN</span>
                			</div>
                			<span class="fadeinable mt-n2 text-125">&hellip;</span>
-               		-->
-               </li>
+               		
+               </li> -->
                
                
                <li class="nav-item active">
                
-                 <a href="html/dashboard.html" class="nav-link">
+                 <a href="/admin" class="nav-link">
                	 <i class="nav-icon fa fa-tachometer-alt"></i>
                	 <span class="nav-text fadeable">
                	  <span>Dashboard</span>
@@ -90,8 +91,8 @@
                  
                </li>
                
-                #foreach($pMenu in $adminparentMenu)
-               <li class="nav-item">             
+               
+               <!-- <li class="nav-item">             
                  <a href="${pMenu.menu_url}" class="nav-link">
                	 <i class="nav-icon fa fa-cube"></i>
                	 <span class="nav-text fadeable">
@@ -99,9 +100,45 @@
                	 </span>           
                	 <b class="caret fa fa-angle-left rt-n90"></b>             
                  </a>
-           	   </li>  
-           	   #end
+           	   </li>  --> 
+           	  
+               <li class="nav-item #if(${pagetitle} == 'Menu') active #end ">
                
+                 <a href="/admin/menu/index.jsp" class="nav-link ">
+               	 <i class="nav-icon fa fa-cube nav-icon-round bgc-warning-tp1"></i>
+               	 <span class="nav-text fadeable">
+               	  <span>Menu</span>
+               	 </span>
+               	 </a>
+               </li>
+               
+               <li class="nav-item #if(${pagetitle} == 'User') active #end">
+               
+                 <a href="/admin/user/index.jsp" class="nav-link ">
+               	 <i class="nav-icon fa fa-users nav-icon-round bgc-success-tp1"></i>
+               	 <span class="nav-text fadeable">
+               	  <span>Users</span>
+               	 </span>
+               	 </a>
+               </li>
+               <li class="nav-item #if(${pagetitle} == 'News') active #end">
+               
+                 <a href="/admin/news/index.jsp" class="nav-link ">
+               	 <i class="nav-icon fa fa-list nav-icon-round bgc-danger-tp1"></i>
+               	 <span class="nav-text fadeable">
+               	  <span>News</span>
+               	 </span>
+               	 </a>
+               </li>
+               <li class="nav-item #if(${pagetitle} == 'Banner') active #end">
+               
+                 <a href="/admin/banner/index.jsp" class="nav-link ">
+               	 <i class="nav-icon fa fa-image nav-icon-round bgc-info-tp1"></i>
+               	 <span class="nav-text fadeable">
+               	  <span>Banner</span>
+               	 </span>
+               	 </a>
+               </li>
               <!--  <li class="nav-item">
                
                  <a href="#" class="nav-link dropdown-toggle">
@@ -978,7 +1015,7 @@
                </li> -->
                
                
-               <li class="nav-item">
+               <!-- <li class="nav-item">
                
                  <a href="#" class="nav-link dropdown-toggle">
                	 <i class="nav-icon fa fa-tag"></i>
@@ -989,10 +1026,10 @@
                
                	 <b class="caret fa fa-angle-left rt-n90"></b>
                
-               	 <!--
+               	 
                	 	<b class="caret caret-shown fa fa-minus text-80"></b>
                	 	<b class="caret caret-hidden fa fa-plus text-80"></b>
-               	 -->
+               	
                  </a>
                
                	<div class="hideable submenu collapse">
@@ -1008,8 +1045,8 @@
                			
                				 
                			
-               				 <!--
-               				 -->
+               				 
+               				
                			  </a>
                			
                			
@@ -1030,8 +1067,8 @@
                			
                				 
                			
-               				 <!--
-               				 -->
+               				 
+               				
                			  </a>
                			
                			
@@ -1052,8 +1089,8 @@
                			
                				 
                			
-               				 <!--
-               				 -->
+               				 
+               				
                			  </a>
                			
                			
@@ -1074,8 +1111,8 @@
                			
                				 
                			
-               				 <!--
-               				 -->
+               				 
+               				
                			  </a>
                			
                			
@@ -1096,8 +1133,8 @@
                			
                				 
                			
-               				 <!--
-               				 -->
+               				 
+               				
                			  </a>
                			
                			
@@ -1116,14 +1153,14 @@
                  
                  
                  
-               </li>
+               </li> -->
                
             </ul>
           
            </div><!-- /.sidebar scroll -->
           
            
-           <div class="sidebar-section">
+           <!-- <div class="sidebar-section">
              <div class="sidebar-section-item fadeable-bottom">
                   <div class="fadeinable">
                      <div class="pos-rel">
@@ -1158,7 +1195,7 @@
                     </div>
                   </div>
              </div> 
-         </div>
+         </div> -->
           
       </div>         
   </div><!-- /#sidebar -->

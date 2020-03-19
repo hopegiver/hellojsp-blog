@@ -1,11 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
-
-if(userId == null){
-	m.jsAlert("Need to login");
-	m.jsReplace("/admin/login.jsp", "window");
-}
-//Step1
-AdminUserDao adminuser = new AdminUserDao();
+<%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
 
 //Step2
 f.addElement("login_id", null, "title:'login_id', required:true");
@@ -43,6 +36,10 @@ if(m.isPost() && f.validate()) {
 
 //Step4
 //p.setDebug(out);
+String pagetitle = "User"; 
+String pageaction = "add"; 
+p.setVar("pagetitle", pagetitle);
+p.setVar("pageaction", pageaction);
 p.setLayout("blog");
 p.setBody("admin/user/create");
 p.setVar("form_script", f.getScript());

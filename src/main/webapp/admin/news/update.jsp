@@ -1,11 +1,6 @@
-<%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
-	if(userId == null){
-		m.jsAlert("Need to login");
-		m.jsReplace("/admin/login.jsp", "window");
-	}
-//Step1
-NewsDao news = new NewsDao();
+<%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
 
+//Step1
 DataSet menuInfo = adminmenu.find("status != -1 and menu_cat='user'", "parent_id, menu_name", "sort");
 
 //Step2
@@ -24,7 +19,6 @@ f.addElement("photo_name", info.s("photo_name"), "title:'photo_name'");
 f.addElement("video_url", info.s("video_url"), "title:'video_url'");
 f.addElement("use_yn", null, "title:'use_yn'");
 
-
 //Step5
 if(m.isPost() && f.validate()) {
 
@@ -38,15 +32,15 @@ if(m.isPost() && f.validate()) {
 	
 	if("Y".equals(f.get("photo_name_del"))) {
 		news.item("photo_name", "");
-		m.delFile( "/" + info.s("photo_name"));
+		m.delFile(f.uploadDir + "/" + info.s("photo_name"));
 	}
 	
-	File attFile = f.saveFile("photo_name", UploadPath);
+	File attFile = f.saveFile("photo_name");
 	if(attFile != null) {
-		news.item("photo_name", f.getFileName("photo_name"));
+		news.item("photo_name", attFile.getName());
 
 		if(!"".equals(info.s("photo_name"))) {
-			m.delFile(UploadPath + "/" + info.s("photo_name"));
+			m.delFile(UploadPath + "/" + info.s("att_file_code"));
 		}
 	}
 
@@ -61,6 +55,10 @@ if(m.isPost() && f.validate()) {
 }
 
 //Step6
+String pagetitle = "News"; 
+String pageaction = "update"; 
+p.setVar("pagetitle", pagetitle);
+p.setVar("pageaction", pageaction);
 p.setLayout("blog");
 p.setBody("admin/news/update");
 p.setVar("info", info);

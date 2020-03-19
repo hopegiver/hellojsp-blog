@@ -1,10 +1,10 @@
 <div class="page-content container">
   <div class="page-header">
       <h1 class="page-title text-primary-d2">
-          Menu 
+          ${pagetitle} 
            <small class="page-info text-secondary-d2">
               <i class="fa fa-angle-double-right text-80"></i>
-              Delete
+              ${pageaction}
           </small>
       </h1>
   </div>
@@ -12,7 +12,7 @@
   <div class="row">
   	<div class="col-9">
   		<form name="form1" method="post">
-			<div class="alert alert-danger" role="alert">Do you want to delete Menu?</div>
+			<div class="alert alert-danger" role="alert">Do you want to delete ${pagetitle}?</div>
 			<input type="hidden" name="id">
 			<input type="button" value="Back" class="btn btn-default" onclick="history.go(-1)">
 			<input type="submit" value="Delete" class="btn btn-danger">

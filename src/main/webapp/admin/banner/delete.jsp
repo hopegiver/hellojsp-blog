@@ -1,11 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
-
-	if(userId == null){
-		m.jsAlert("Need to login");
-		m.jsReplace("/admin/login.jsp", "window");
-	}
-//Step1
-	BannerDao banner = new BannerDao();
+<%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
 
 //Step2
 int id = m.reqInt("id");
@@ -36,6 +29,10 @@ if(m.isPost() && f.validate()) {
 }
 
 //Step6
+String pagetitle = "Banner"; 
+String pageaction = "delete"; 
+p.setVar("pagetitle", pagetitle);
+p.setVar("pageaction", pageaction);
 p.setLayout("blog");
 p.setBody("admin/banner/delete");
 p.setVar("info", info);

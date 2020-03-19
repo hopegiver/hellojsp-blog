@@ -1,14 +1,13 @@
+<%-- <%@ page import="javax.xml.crypto.Data" %> --%>
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
 
 AdminUserDao adminuser = new AdminUserDao();
-	m.p("USER_ID : " + userId);
+	//m.p("USER_ID : " + userId);
 
 	f.addElement("login_id", null, "title:'login_id', required:'Y'");
 	f.addElement("passwd", null, "title:'password', required:'Y'");
 
 	if(m.isPost() && f.validate()) {
-		
-		File attFile = f.saveFile("att_file");
 		
 		String pass = m.sha256(f.get("passwd"));
 		adminuser.find("");
@@ -17,11 +16,11 @@ AdminUserDao adminuser = new AdminUserDao();
 	    	auth.put("user_id", f.get("login_id"));
 			auth.save();
 			
-			m.jsAlert("Login success");
+			//m.jsAlert("Login success");
 			m.jsReplace("user/index.jsp");
 		} else {
 			m.jsError("id or password is not correct.");
-			return;
+			destroy();
 		}
 		return;		
 	}

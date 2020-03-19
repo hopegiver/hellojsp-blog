@@ -1,8 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
-
-    if(userId != null){
-        //Step1
-       NewsDao news = new NewsDao();
+<%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
 
         //Step2
         f.addElement("s_keyword", null, null);
@@ -25,7 +21,11 @@
         }
 
         //Step4
-        //    p.setDebug(out);
+        //p.setDebug(out);
+        String pagetitle = "News"; 
+		String pageaction = "list"; 
+		p.setVar("pagetitle", pagetitle);
+		p.setVar("pageaction", pageaction);
         p.setLayout("blog");
         p.setBody("admin/news/index");
         p.setVar("list", list);
@@ -33,10 +33,5 @@
         p.setVar("pagebar", lm.getPaging());
         p.setVar("form_script", f.getScript());
         p.print();
-
-    } else {
-        m.jsAlert("Need to login");
-        m.jsReplace("/admin/login.jsp", "window");
-    }
 
 %>

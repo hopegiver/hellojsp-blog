@@ -45,7 +45,7 @@
           </footer>         
      </div><!-- /main -->
       
-        <div id="id-ace-settings-modal" class="my-1 my-lg-2 modal modal-nb ace-aside aside-right aside-offset aside-below-nav" data-backdrop="false" tabindex="-1" role="dialog" aria-hidden="true">
+        <!-- <div id="id-ace-settings-modal" class="my-1 my-lg-2 modal modal-nb ace-aside aside-right aside-offset aside-below-nav" data-backdrop="false" tabindex="-1" role="dialog" aria-hidden="true">
           
           <div class="modal-dialog" role="document">
             <div class="modal-content w-auto flex-grow-1 pb-1px radius-0 radius-l-2 border-y-2 border-l-1 brc-default-m3 bgc-white-tp1 shadow">
@@ -213,7 +213,7 @@
                       </label>
         
                     </div>
-                  </div><!-- #id-sidebar-themes-dark -->
+                  </div>#id-sidebar-themes-dark
         
         
                   <div class="d-none" id="id-sidebar-themes-light">
@@ -257,7 +257,7 @@
         
                      </div>
                     </div>
-                  </div><!-- #id-sidebar-themes-light -->
+                  </div>#id-sidebar-themes-light
         
                 </div>
         
@@ -361,7 +361,7 @@
                       </label>
         
                     </div>
-                  </div><!-- #id-navbar-themes-dark -->
+                  </div>#id-navbar-themes-dark
         
                   <div class="d-none" id="id-navbar-themes-light">
                     <div class="bgc-secondary-tp2 radius-1 py-1 px-1 mb-3 mt-1 text-center">
@@ -410,7 +410,7 @@
                      </div>
                     </div>
         
-                  </div><!-- #id-navbar-themes-light -->
+                  </div>#id-navbar-themes-light
         
                 </div>
         
@@ -523,7 +523,7 @@
         
                 <div class="text-95">
                   <h5 class="text-warning-d1 ml-n2px">Sidebar</h5>
-                  <!--
+                  
                   <div class="mt-3 d-none d-xl-flex justify-content-between align-items-center">
                       <label for="id-sidebar-compact" class="pl-1 text-grey-d2">Compact</label>
         
@@ -541,7 +541,7 @@
                         <label class="custom-control-label" for="id-sidebar-hover"></label>
                       </div>
                   </div>
-                  -->
+                 
         
                   <div class="mt-2 d-none d-xl-flex justify-content-between align-items-center">
                       <div class="pl-1 text-grey-d1">Collapsed Mode</div>
@@ -597,15 +597,15 @@
                   </button>
               </div>
         
-            </div><!-- .modal-content -->
+            </div>.modal-content
         
             <div class="aside-header align-self-start mt-1 mt-md-5 text-right">
                 <button type="button" class="btn btn-warning btn-lg shadow-sm pl-2 radius-l-2" data-toggle="modal" data-target="#id-ace-settings-modal">
                     <i class="fa fa-cog text-110 ml-1"></i>
                 </button>
             </div>
-          </div><!-- .modal-dialog -->
-        </div><!-- .modal-aside -->      </div><!-- /.main-container -->
+          </div>.modal-dialog
+        </div> --><!-- .modal-aside -->      </div><!-- /.main-container -->
 
 
       <!--   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
@@ -642,6 +642,13 @@
       
        <!-- "Wysiwyg & Editor" page script to enable its demo functionality -->
       <script type="text/javascript" src="/resources/admin/application/views/default/pages/partials/form-editor/@page-script.js"></script>
+      
+      <!-- include vendor scripts used in "Treeview" page. see "application/views/default/pages/partials/treeview/@vendor-scripts.hbs" -->
+      <script type="text/javascript" src="/resources/admin/node_modules/jqtree/tree.jquery.js"></script>
+      
+      <!-- "Treeview" page script to enable its demo functionality -->
+      <script type="text/javascript" src="/resources/admin/application/views/default/pages/partials/treeview/@page-script.js"></script>
+ 
       
    </div><!-- /.body-container -->
   </body>

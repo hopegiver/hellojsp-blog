@@ -1,10 +1,5 @@
-<%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
+<%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
 
-if(userId == null){
-	m.jsAlert("Need to login");
-	m.jsReplace("/admin/login.jsp", "window");
-}
-//Step1
 
 //Step2
 f.addElement("menu_name", null, "title:'menu_name', required:true");
@@ -44,11 +39,13 @@ if(m.isPost() && f.validate()) {
 }
 //Step4
 //p.setDebug(out);
+String pagetitle = "Menu"; 
+String pageaction = "add"; 
+p.setVar("pagetitle", pagetitle);
+p.setVar("pageaction", pageaction);
 p.setLayout("blog");
 p.setBody("admin/menu/create");
 p.setVar("form_script", f.getScript());
-p.setVar("parentMenu", parentMenu);
-p.setVar("subMenu", subMenu);
 p.print();
 
 %>

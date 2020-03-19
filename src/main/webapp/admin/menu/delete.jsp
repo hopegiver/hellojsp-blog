@@ -1,6 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8" %><%@ include file="/init.jsp" %><%
-
-//Step1
+<%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
 
 //Step2
 int id = m.reqInt("id");
@@ -31,6 +29,10 @@ if(m.isPost() && f.validate()) {
 }
 
 //Step6
+String pagetitle = "Menu"; 
+String pageaction = "delete"; 
+p.setVar("pagetitle", pagetitle);
+p.setVar("pageaction", pageaction);
 p.setLayout("blog");
 p.setBody("admin/menu/delete");
 p.setVar("info", info);
