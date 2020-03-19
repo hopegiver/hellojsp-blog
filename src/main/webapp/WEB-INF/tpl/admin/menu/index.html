@@ -43,7 +43,7 @@
 			<th class="d-none d-sm-table-cell">ID</th>
 			<th class="d-none d-sm-table-cell">Menu Name</th>
 			<th class="d-none d-sm-table-cell">Menu Category</th>
-			<th class="d-none d-sm-table-cell">Parent Id</th>
+			<th class="d-none d-sm-table-cell">Parent Menu</th>
 			<th class="d-none d-sm-table-cell">Menu_url</th>
 			<th class="d-none d-sm-table-cell">Menu_type</th>
 			<th class="d-none d-sm-table-cell">Sort</th>
@@ -92,7 +92,7 @@
 					   <td class='d-none d-sm-table-cell'>${sMenu.menu_name}</td>
 					   <td class='d-none d-sm-table-cell'>${sMenu.menu_cat}</td>
 		               <td>
-		                  #foreach($parent in $parent) -->
+		                  #foreach($parent in $parent)
 		                       #if(${parent.id} == ${sMenu.parent_id})
 		                           ${parent.menu_name}
 		                       #end
