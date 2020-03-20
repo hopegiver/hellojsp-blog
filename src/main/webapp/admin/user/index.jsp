@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
-m.p("USER_ID : " + userId);
+//m.p("USER_ID : " + userId);
         //Step2
         f.addElement("s_keyword", null, null);
 
