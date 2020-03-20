@@ -7,7 +7,7 @@
         </small>
     </h1>
 </div>
-<div class="row" style="margin-bottom: 20px;"> 
+<!-- <div class="row" style="margin-bottom: 20px;"> 
 	<div class="col-sm-12">
 		<div class="float-left">
 	   	   <a href="create.jsp" class="btn btn-small btn-primary">New</a>
@@ -20,88 +20,158 @@
 			${form_script}
 		</div>
 	</div>     
+</div> -->
+<div class="row">
+	<div class="col-12 col-md-4 mt-3 mt-md-0">
+        <div class="card border-0">
+            <div class="card-header bgc-default-d2">
+                <h3 class="card-title text-130 text-white">
+                    Choose Menu
+                </h3>
+            </div>
+            <div class="card-body bgc-white border-1 border-t-0 brc-default-m2">
+                <div class="jqtree" id="id-jqtree-categories"></div>
+            </div>
+        </div>
+    </div>
+	<div class="col-12 col-md-8 mt-3 mt-md-0"> 
+		<form name="form1" method="post" enctype="multipart/form-data">
+			<div class="form-group row">
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Menu Name</label>
+		        </div>	
+		        <div class="col-sm-9">
+		            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="menu_name" />
+		        </div>
+		    </div>
+		    <div class="form-group row">
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Menu Type</label>
+		        </div>	
+		        <div class="col-sm-9">
+		            <label><input type="radio" class="radio-inline" name="menu_type" value="page" checked/>Page</label>
+		            <label><input type="radio" class="radio-inline" name="menu_type" value="not_board"/>Notice board</label>
+		            <label><input type="radio" class="radio-inline" name="menu_type" value="program"/>Program</label>
+		            <label><input type="radio" class="radio-inline" name="menu_type" value="link"/>Link</label>
+		            <label><input type="radio" class="radio-inline" name="menu_type" value="submenu_link"/>Submenu link</label>
+		        </div>
+		    </div>
+			<div class="form-group row">
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Menu Category</label>
+		        </div>	
+		        <div class="col-sm-9">
+		            <label><input type="radio" class="radio-inline" name="menu_cat" value="admin"/>Admin</label>
+		            <label><input type="radio" class="radio-inline" name="menu_cat" value="user" checked/>User</label>
+		        </div>
+		    </div>
+			<div class="form-group row">
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Parent ID</label>
+		        </div>	
+		        <div class="col-sm-4">
+				   <select class="form-control" id="form-field-select-1" name="parent_id">
+						  <option value="0">Select</option>
+							<!--#foreach($menu in $menuInfo)  -->
+							<option value="${menu.id}">${menu.menu_name}</option>
+							<!--#end -->
+					</select>
+		        </div>
+		    </div>
+			<div class="form-group row">
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Menu Url</label>
+		        </div>	
+		        <div class="col-sm-9">
+		            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="menu_url" />
+		        </div>
+		    </div>
+			<div class="form-group row">
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">To use</label>
+		        </div>	
+		        <div class="col-sm-9">
+		            <label><input type="radio" class="radio-inline" name="use_yn" value="Y" checked/>Use</label>
+		            <label><input type="radio" class="radio-inline" name="use_yn" value="N"/>Not use</label>
+		        </div>
+		    </div>
+			<div class="form-group row">
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Target</label>
+		        </div>	
+		        <div class="col-sm-9">
+		            <label><input type="radio" class="radio-inline" name="target" value="new" />New window</label>
+		            <label><input type="radio" class="radio-inline" name="target" value="current" checked/>Current window</label>
+		        </div>
+		    </div>
+			<div class="form-group row">
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Menu Depth</label>
+		        </div>	
+		        <div class="col-sm-9">
+		            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="menu_depth" />
+		        </div>
+		    </div>
+			<div class="form-group row">
+		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+		            <label for="id-form-field-1" class="mb-0">Sort</label>
+		        </div>	
+		        <div class="col-sm-9">
+		            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="sort" />
+		        </div>
+		    </div>
+		    <div class="form-group">
+				<div class="col text-center">
+					<a href="index.jsp" class="btn btn-primary">New</a>
+					<input type="submit" value="Save" class="btn btn-success">
+					<input type="button" value="Cancel" class="btn btn-default" onclick="history.go(-1)">
+					<input type="button" value="Delete" class="btn btn-danger" id="delete">
+				</div>
+			</div>
+		</form>
+		${form_script}
+	</div>
 </div>
-<table id="simple-table" class="table table-bordered table-bordered-x table-hover text-dark-m2">
-	<thead>
-		<tr>
-			<th class="d-none d-sm-table-cell">ID</th>
-			<th class="d-none d-sm-table-cell">Menu Name</th>
-			<th class="d-none d-sm-table-cell">Menu Category</th>
-			<th class="d-none d-sm-table-cell">Parent Menu</th>
-			<th class="d-none d-sm-table-cell">Menu_url</th>
-			<th class="d-none d-sm-table-cell">Menu_type</th>
-			<th class="d-none d-sm-table-cell">Sort</th>
-			<th class="d-none d-sm-table-cell">To use</th>
-			<th class="d-none d-sm-table-cell">Manage</th>
-		</tr>
-	</thead>
-	<tbody class="bgc">
-		#foreach($pMenu in $parentMenu)
-          #if(${pMenu.parent_id} == 0)
-           <tr>
-               <td class='d-none d-sm-table-cell'>${pMenu.id}</td>
-			   <td class='d-none d-sm-table-cell'>${pMenu.menu_name}</td>
-			   <td class='d-none d-sm-table-cell'>${pMenu.menu_cat}</td>
-               <td>
-                  #foreach($parent in $parent)
-                      #if(${parent.id} == ${pMenu.parent_id})
-                           ${parent.menu_name}
-                      #end
-                  #end
-               </td>
-               <td class='d-none d-sm-table-cell'>${pMenu.menu_url}</td>
-			   <td class='d-none d-sm-table-cell'>${pMenu.menu_type}</td>
-			   <td class='d-none d-sm-table-cell'>${pMenu.sort}</td>
-			   <td class='d-none d-sm-table-cell'>${pMenu.use_yn}</td>
-               <td>
-					<div class='d-none d-lg-flex text-muted'>
-						<a href="update.jsp?id=${pMenu.id}" class="btn radius-1 btn-sm btn-brc-tp btn-outline-default btn-h-outline-primary btn-a-outline-primary btn-text-primary"><i class="fa fa-pencil-alt"></i></a>
-						<a href="delete.jsp?id=${pMenu.id}" class="btn radius-1 btn-sm btn-brc-tp btn-outline-default btn-h-outline-danger btn-a-outline-danger btn-text-danger"><i class="fa fa-trash-alt"></i></a>
-					</div>
-				</td>
-           </tr>
-           #end
-          	#foreach($sMenu in $subMenu)
-               #if(${pMenu.id} == ${sMenu.parent_id})
-		            <tr style="background-color: #c9cacd">
-		               <td class='d-none d-sm-table-cell'>${sMenu.id}</td>
-					   <td class='d-none d-sm-table-cell'>${sMenu.menu_name}</td>
-					   <td class='d-none d-sm-table-cell'>${sMenu.menu_cat}</td>
-		               <td>
-		                  #foreach($parent in $parent)
-		                       #if(${parent.id} == ${sMenu.parent_id})
-		                           ${parent.menu_name}
-		                       #end
-		                  #end
-		               </td>
-		               <td class='d-none d-sm-table-cell'>${sMenu.menu_url}</td>
-					   <td class='d-none d-sm-table-cell'>${sMenu.menu_type}</td>
-					   <td class='d-none d-sm-table-cell'>${sMenu.sort}</td>
-					   <td class='d-none d-sm-table-cell'>${sMenu.use_yn}</td>
-		               <td>
-							<div class='d-none d-lg-flex text-muted'>
-								<a href="update.jsp?id=${sMenu.id}" class="btn radius-1 btn-sm btn-brc-tp btn-outline-default btn-h-outline-primary btn-a-outline-primary btn-text-primary"><i class="fa fa-pencil-alt"></i></a>
-								<a href="delete.jsp?id=${sMenu.id}" class="btn radius-1 btn-sm btn-brc-tp btn-outline-default btn-h-outline-danger btn-a-outline-danger btn-text-danger"><i class="fa fa-trash-alt"></i></a>
-							</div>
-			
-							<!-- <div class='dropdown d-inline-block d-lg-none dd-backdrop dd-backdrop-none-md'>
-								<a href='#' class='btn btn-outline-warning btn-xs radius-round dropdown-toggle' data-toggle="dropdown"><i class="fa fa-cog text-110"></i></a>
-								<div class="dropdown-menu dd-slide-up dd-slide-none-md"><div class="dropdown-inner">
-									<a href="update.jsp?id=${sMenu.id}" class="dropdown-item"><i class="fa fa-pencil-alt text-blue-m1 mr-1 bgc-white-tp1 radius-round p-2 w-4"></i>Edit</a>
-									<a href="delete.jsp?id=${sMenu.id}" class="dropdown-item"><i class="fa fa-trash text-danger-m1 mr-1 bgc-white-tp1 radius-round p-2 w-4"></i>Delete</a>
-								</div></div>
-							</div> -->
-						</td>
-                   </tr>
-               #end
-           #end
-       #end
-	</tbody>
-</table>
-<div class="pagination justify-content-center">
-	${pagebar}
-</div>
 
+<script>
+var id =${id}
+var categoryData = [
+    {
+        id: 0,
+        name: 'Menu',
 
+        children: [
+        	#foreach($menu in $menuInfo)
+            #if(${menu.parent_id} == 0)
+                {
+            id: ${menu.id},
+            name: "${menu.menu_name}",
 
+                children: [
+                	#foreach($sMenu in $subMenu)
+                    #if(${menu.id} == ${sMenu.parent_id} && ${sMenu.parent_id} > 0)
+                    {
+                        id: ${sMenu.id},
+                        name: "${sMenu.menu_name}"
+                    },
+                    #end
+                    #end
+                ]
+            },
+            #end
+            #end
+        ]
+    }  
+];
 
+$('#delete').click(function(){
+	var click = confirm("Are you sure you want to delete this menu?");
+	if(click == true){
+		var url = window.location.pathname; 
+		location.replace(url + "?id=" + id + "&del=1");
+	}
+	else {
+		return false;
+	}
+});
+</script>

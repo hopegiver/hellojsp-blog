@@ -70,16 +70,6 @@
 	${pagebar}
 </div>
 <script>
-$(function(){
-	$(".news-subject").each(function () {
-	    len=$(this).text().length;
-	    str= $(this).text().substr(0,50);
-	    lastIndexOf = str.lastIndexOf(" "); 
-	    if(len>80) {
-	        $(this).text(str.substr(0, lastIndexOf) + '…');
-	    }
-	});
-});
 function myFunction(url) {
 	var myWindow = window.open(url, "", "width=700, height=500");
 }

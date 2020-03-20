@@ -30,9 +30,8 @@ AdminUserDao adminuser = new AdminUserDao();
 BannerDao banner = new BannerDao();
 NewsDao news = new NewsDao();
 AdminMenuDao adminmenu = new AdminMenuDao();
-AdminMenuDao parentadminmenu = new AdminMenuDao();
 
-DataSet adminparentMenu = parentadminmenu .find("status != -1 AND parent_id = 0 AND menu_cat='admin'", "*", "sort");
+DataSet adminparentMenu = adminmenu .find("status != -1 AND parent_id = 0 AND menu_cat='admin'", "*", "sort");
 
 p.setVar("adminparentMenu", adminparentMenu);
 
