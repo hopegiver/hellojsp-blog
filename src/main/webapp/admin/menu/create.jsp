@@ -13,6 +13,10 @@ f.addElement("target", null, "title:'target', required:false");
 f.addElement("use_yn", null, "title:'use_yn', required:false");
 
 //Step3
+DataSet parentMenu = adminmenu.find("status != -1", "id, menu_name, menu_type, menu_cat, menu_url, use_yn, parent_id, sort, reg_date", "sort");
+        
+DataSet subMenu = adminmenu.find("status != -1 AND parent_id != 0", "id, menu_name, menu_type, menu_cat, menu_url, use_yn, parent_id, sort, reg_date", "sort");
+
 if(m.isPost() && f.validate()) {
 	f.addElement("s_keyword", null, null);
 
@@ -37,6 +41,7 @@ if(m.isPost() && f.validate()) {
 	m.redirect("index.jsp");
 	return;
 }
+
 //Step4
 //p.setDebug(out);
 String pagetitle = "Menu"; 
@@ -45,6 +50,8 @@ p.setVar("pagetitle", pagetitle);
 p.setVar("pageaction", pageaction);
 p.setLayout("blog");
 p.setBody("admin/menu/create");
+p.setVar("parentMenu", parentMenu);
+p.setVar("subMenu", subMenu);
 p.setVar("form_script", f.getScript());
 p.print();
 

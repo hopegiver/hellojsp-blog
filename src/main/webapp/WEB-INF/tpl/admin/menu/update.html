@@ -7,7 +7,20 @@
 	        </small>
 	    </h1>
 	</div>
-	<div> 
+<div class="row">
+	<div class="col-12 col-md-4 mt-3 mt-md-0">
+        <div class="card border-0">
+            <div class="card-header bgc-default-d2">
+                <h3 class="card-title text-130 text-white">
+                    Choose Menu
+                </h3>
+            </div>
+            <div class="card-body bgc-white border-1 border-t-0 brc-default-m2">
+                <div class="jqtree" id="id-jqtree-categories"></div>
+            </div>
+        </div>
+    </div>
+	<div class="col-12 col-md-8 mt-3 mt-md-0"> 
 		<form name="form1" method="post" enctype="multipart/form-data">
 			<div class="form-group row">
 		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
@@ -102,3 +115,36 @@
 		</form>
 		${form_script}
 	</div>
+</div>
+
+<script>
+var categoryData = [
+    {
+        id: 0,
+        name: 'Menu',
+
+        children: [
+        	#foreach($pMenu in $parentMenu)
+            #if(${pMenu.parent_id} == 0)
+                {
+            id: ${pMenu.id},
+            name: "${pMenu.menu_name}",
+
+                children: [
+                	#foreach($sMenu in $subMenu)
+                    #if(${pMenu.id} == ${sMenu.parent_id} && ${sMenu.parent_id} > 0)
+                    {
+                        id: ${sMenu.id},
+                        name: "${sMenu.menu_name}"
+                    },
+                    #end
+                    #end
+                ]
+            },
+            #end
+            #end
+        ]
+    }  
+];
+
+</script>
