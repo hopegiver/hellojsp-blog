@@ -102,26 +102,26 @@
                     <div class="gazette-welcome-post">
                         <!-- Post Tag -->
                         <div class="gazette-post-tag">
-                            <a href="#">Politices</a>
+                            <a href="#">${onePoliticNews.type}</a>
                         </div>
-                        <h2 class="font-pt">What's behind the world obsession with gems?</h2>
-                        <p class="gazette-post-date">March 29, 2016</p>
+                        <h2 class="font-pt">${onePoliticNews.subject}</h2>
+                        <p class="gazette-post-date">${onePoliticNews.reg_date}</p>
                         <!-- Post Thumbnail -->
                         <div class="blog-post-thumbnail my-5">
-                            <img src="/resources/front/img/blog-img/1.jpg" alt="post-thumb">
+                            <img src="/uploads/files/${onePoliticNews.photo_name}" alt="post-thumb">
                         </div>
                         <!-- Post Excerpt -->
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ultrices egestas nunc, quis venenatis orci tincidunt id. Fusce commodo blandit eleifend. Nullam viverra tincidunt dolor, at pulvinar dui. Nullam at risus ut ipsum viverra posuere. Aliquam quis convallis enim. Nunc pulvinar molestie sem id blandit. Nunc venenatis interdum mollis. Aliquam finibus nulla quam, a iaculis justo finibus non. Suspendisse in fermentum nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ultrices egestas nunc, quis venenatis orci tincidunt id. Fusce commodo blandit eleifend.</p>
+                        <p>${onePoliticNews.content}</p>
                         <!-- Reading More -->
                         <div class="post-continue-reading-share d-sm-flex align-items-center justify-content-between mt-30">
                             <div class="post-continue-btn">
                                 <a href="#" class="font-pt">Continue Reading <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                             </div>
                             <div class="post-share-btn-group">
-                                <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="https://www.pinterest.com/"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                                <a href="https://www.linkedin.com/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                <a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="https://twitter.com/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -390,85 +390,17 @@
         <div class="container">
             <div class="row">
                 <!-- Single Video Post Start -->
+                #foreach($video in $singleVideoPosts)
                 <div class="col-12 col-md-3">
                     <div class="single-video-post">
                         <div class="video-post-thumb">
-                            <img src="/resources/front/img/blog-img/4.jpg" alt="">
-                            <a href="https://youtu.be/dIyXl9ZHEgg" class="videobtn"><i class="fa fa-play" aria-hidden="true"></i></a>
+                           	<img src="/uploads/files/${video.photo_name}" alt=""> 
+                            <a onclick="myFunction('${video.video_url}')" class="videobtn"><i class="fa fa-play" aria-hidden="true"></i></a>
                         </div>
-                        <h5><a href="#">Show suspended by PBS amid misconduct allegations</a></h5>
+                        <h5><a onclick="myFunction('${video.video_url}')">${video.subject}</a></h5>
                     </div>
                 </div>
-                <!-- Single Video Post Start -->
-                <div class="col-12 col-md-3">
-                    <div class="single-video-post">
-                        <div class="video-post-thumb">
-                            <img src="/resources/front/img/blog-img/5.jpg" alt="">
-                            <a href="https://youtu.be/dIyXl9ZHEgg" class="videobtn"><i class="fa fa-play" aria-hidden="true"></i></a>
-                        </div>
-                        <h5><a href="#">Parents to Congress</a></h5>
-                    </div>
-                </div>
-                <!-- Single Video Post Start -->
-                <div class="col-12 col-md-3">
-                    <div class="single-video-post">
-                        <div class="video-post-thumb">
-                            <img src="/resources/front/img/blog-img/6.jpg" alt="">
-                            <a href="https://youtu.be/dIyXl9ZHEgg" class="videobtn"><i class="fa fa-play" aria-hidden="true"></i></a>
-                        </div>
-                        <h5><a href="#">Third Buy Alert for This “Millionaire Maker” Stock</a></h5>
-                    </div>
-                </div>
-                <!-- Single Video Post Start -->
-                <div class="col-12 col-md-3">
-                    <div class="single-video-post">
-                        <div class="video-post-thumb">
-                            <img src="/resources/front/img/blog-img/7.jpg" alt="">
-                            <a href="https://youtu.be/dIyXl9ZHEgg" class="videobtn"><i class="fa fa-play" aria-hidden="true"></i></a>
-                        </div>
-                        <h5><a href="#">The Chicago Mercantile Exchange is set to begin</a></h5>
-                    </div>
-                </div>
-                <!-- Single Video Post Start -->
-                <div class="col-12 col-md-3">
-                    <div class="single-video-post">
-                        <div class="video-post-thumb">
-                            <img src="/resources/front/img/blog-img/8.jpg" alt="">
-                            <a href="https://youtu.be/dIyXl9ZHEgg" class="videobtn"><i class="fa fa-play" aria-hidden="true"></i></a>
-                        </div>
-                        <h5><a href="#">Trading bitcoin futures</a></h5>
-                    </div>
-                </div>
-                <!-- Single Video Post Start -->
-                <div class="col-12 col-md-3">
-                    <div class="single-video-post">
-                        <div class="video-post-thumb">
-                            <img src="/resources/front/img/blog-img/9.jpg" alt="">
-                            <a href="https://youtu.be/dIyXl9ZHEgg" class="videobtn"><i class="fa fa-play" aria-hidden="true"></i></a>
-                        </div>
-                        <h5><a href="#">Are ‘Micro-Mansions’ the Next Big Thing?</a></h5>
-                    </div>
-                </div>
-                <!-- Single Video Post Start -->
-                <div class="col-12 col-md-3">
-                    <div class="single-video-post">
-                        <div class="video-post-thumb">
-                            <img src="/resources/front/img/blog-img/10.jpg" alt="">
-                            <a href="https://youtu.be/dIyXl9ZHEgg" class="videobtn"><i class="fa fa-play" aria-hidden="true"></i></a>
-                        </div>
-                        <h5><a href="#">McKinney’s target market</a></h5>
-                    </div>
-                </div>
-                <!-- Single Video Post Start -->
-                <div class="col-12 col-md-3">
-                    <div class="single-video-post">
-                        <div class="video-post-thumb">
-                            <img src="/resources/front/img/blog-img/11.jpg" alt="">
-                            <a href="https://youtu.be/dIyXl9ZHEgg" class="videobtn"><i class="fa fa-play" aria-hidden="true"></i></a>
-                        </div>
-                        <h5><a href="#">Australian Property Prices Remain Flat</a></h5>
-                    </div>
-                </div>
+                #end
             </div>
         </div>
     </section>
@@ -575,4 +507,8 @@
     </section>
     <!-- Editorial Area End -->
 #parse("front/footer.html")
-    
+<script>
+function myFunction(url) {
+	var myWindow = window.open(url, "", "width=700, height=500");
+}
+</script>

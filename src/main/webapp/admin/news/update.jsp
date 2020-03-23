@@ -13,6 +13,7 @@ if(!info.next()) { m.jsError("No Data"); return; }
 
 //Step4
 f.addElement("type", info.s("type"), "title:'type', required:true");
+f.addElement("media_type", info.s("media_type"), "title:'media_type', required:true");
 f.addElement("subject", info.s("subject"), "title:'subject', required:true");
 f.addElement("content", info.s("content"), "title:'content', required:true");
 f.addElement("photo_name", info.s("photo_name"), "title:'photo_name'");
@@ -23,6 +24,7 @@ f.addElement("use_yn", null, "title:'use_yn'");
 if(m.isPost() && f.validate()) {
 
 	news.item("type", f.get("type"));
+	news.item("media_type", f.get("media_type"));
 	news.item("subject", f.get("subject"));
 	news.item("content", f.get("content"));
 	news.item("video_url", f.get("video_url"));

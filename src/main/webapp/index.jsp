@@ -6,14 +6,19 @@
         
 		NewsDao news = new NewsDao();
 		
-		DataSet mediaNews = news.find("status != -1 AND video_url != ''", " * ", "id DESC", 4);
+		DataSet singleVideoPosts = news.find("status != -1 AND video_url != '' AND use_yn='Y'", " * ", "reg_date DESC", 8);
 
-        DataSet newsPhoto = news.find("status != -1 AND type = 'photo'", "photo_name");
+        DataSet onePoliticNews = news.find("status != -1 AND use_yn='Y' AND type='Politics'", " * ", "reg_date DESC", 1);
+        if(!onePoliticNews.next()){m.jsError("No Data"); return;}
+        onePoliticNews.put("reg_date", m.time("MM-dd", onePoliticNews.s("reg_date")));
+    	
         
         p.setBody("front/index");
         p.setVar("form_script", f.getScript());
         p.setVar("parentMenu", parentMenu);
         p.setVar("subMenu", subMenu);
+        p.setVar("singleVideoPosts", singleVideoPosts);
+        p.setVar("onePoliticNews", onePoliticNews);
         p.setVar("form_script", f.getScript());
         p.print();
         
