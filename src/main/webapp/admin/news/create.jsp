@@ -5,21 +5,27 @@
 
 //Step2
 	f.addElement("type", null, "title:'type', required:true");
-	f.addElement("media_type", null, "title:'media_type', required:true");
+	f.addElement("news_type", null, "title:'news_type', required:false");
+	f.addElement("media_type", null, "title:'media_type', required:false");
 	f.addElement("subject", null, "title:'subject', required:true");
 	f.addElement("content", null, "title:'content', required:true");
 	f.addElement("photo_name", null, "title:'photo_name'");
 	f.addElement("video_url", null, "title:'video_url'");
 	f.addElement("use_yn", null, "title:'use_yn'");
+	f.addElement("flow", null, "title:'flow'");
 //Step3
 if(m.isPost() && f.validate()) {
 
 	news.item("type", f.get("type"));
-	news.item("media_type", f.get("media_type"));
 	news.item("subject", f.get("subject"));
 	news.item("content", f.get("content"));
 	news.item("video_url", f.get("video_url"));
 	news.item("use_yn", f.get("use_yn"));
+	news.item("flow", f.get("flow"));
+	mediaTypes.item("news_id", f.get(news.id));
+	mediaTypes.item("news_type", f.get("news_type"));
+	mediaTypes.item("media_type", f.get("media_type"));
+	
 
 	File attFile = f.saveFile("photo_name");
 	if(attFile != null) {
@@ -30,6 +36,10 @@ if(m.isPost() && f.validate()) {
 
 	//blog.setDebug(out);
 	if(!news.insert()) {
+		m.jsError(" occurred(insert)");
+		return;
+	}
+	if(!mediaTypes.insert()) {
 		m.jsError(" occurred(insert)");
 		return;
 	}

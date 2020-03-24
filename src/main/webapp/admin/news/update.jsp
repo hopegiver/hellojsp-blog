@@ -13,22 +13,27 @@ if(!info.next()) { m.jsError("No Data"); return; }
 
 //Step4
 f.addElement("type", info.s("type"), "title:'type', required:true");
-f.addElement("media_type", info.s("media_type"), "title:'media_type', required:true");
+f.addElement("news_type", info.s("news_type"), "title:'news_type', required:false");
+f.addElement("media_type", info.s("media_type"), "title:'media_type', required:false");
 f.addElement("subject", info.s("subject"), "title:'subject', required:true");
 f.addElement("content", info.s("content"), "title:'content', required:true");
 f.addElement("photo_name", info.s("photo_name"), "title:'photo_name'");
 f.addElement("video_url", info.s("video_url"), "title:'video_url'");
 f.addElement("use_yn", null, "title:'use_yn'");
+f.addElement("flow", null, "title:'flow'");
 
 //Step5
 if(m.isPost() && f.validate()) {
 
 	news.item("type", f.get("type"));
-	news.item("media_type", f.get("media_type"));
+	mediaTypes.item("news_id", f.get(news.id));
+	mediaTypes.item("news_type", f.get("news_type"));
+	mediaTypes.item("media_type", f.get("media_type"));
 	news.item("subject", f.get("subject"));
 	news.item("content", f.get("content"));
 	news.item("video_url", f.get("video_url"));
 	news.item("use_yn", f.get("use_yn"));
+	news.item("flow", f.get("flow"));
 	news.item("mod_user", f.get("mod_user")); 
 	news.item("mod_date", m.time("yyyyMMddHHmmss"));
 	
