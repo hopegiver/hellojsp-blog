@@ -1,0 +1,53 @@
+<div class="page-header">
+    <h1 class="page-title text-primary-d2">
+        ${pagetitle}
+         <small class="page-info text-secondary-d2">
+            <i class="fa fa-angle-double-right text-80"></i>
+        ${pageaction}
+        </small>
+    </h1>
+</div>
+<div class="row" style="margin-bottom: 20px;"> 
+	<div class="col-sm-12">
+		<div class="float-left">
+	   	   <a href="create.jsp" class="btn btn-small btn-primary">New</a>
+	    </div>
+	    <div class="float-right">
+	    	<form name="form1" method="get" class="form-inline">
+				<input type="text" name="s_keyword" class="form-control">
+				<input class="btn btn-primary" type="submit" value="Search">
+			</form>
+			${form_script}
+		</div>
+	</div>     
+</div>
+<table id="simple-table" class="table table-bordered table-bordered-x table-hover text-dark-m2">
+	<thead>
+		<tr>
+			<th class="d-none d-sm-table-cell">ID</th>
+			<th class="d-none d-sm-table-cell">Media Type</th>
+			<th class="d-none d-sm-table-cell">To use</th>
+			<th class="d-none d-sm-table-cell">Date</th>
+			<th class="d-none d-sm-table-cell">Manage</th>
+		</tr>
+	</thead>
+	<tbody class="bgc">
+		<!--#foreach($item in $list)-->
+		<tr>
+			<td class="d-none d-sm-table-cell">${item.id}</td>
+			<td class="d-none d-sm-table-cell">${item.media_type}</td>
+			<td class="d-none d-sm-table-cell">${item.use_yn}</td>
+			<td class="d-none d-sm-table-cell">${item.reg_date}</td>
+			<td>
+				<div class='d-none d-lg-flex text-muted'>
+					<a href="update.jsp?id=${item.id}" class="btn radius-1 btn-sm btn-brc-tp btn-outline-default btn-h-outline-primary btn-a-outline-primary btn-text-primary"><i class="fa fa-pencil-alt"></i></a>
+					<a href="delete.jsp?id=${item.id}" class="btn radius-1 btn-sm btn-brc-tp btn-outline-default btn-h-outline-danger btn-a-outline-danger btn-text-danger"><i class="fa fa-trash-alt"></i></a>
+				</div>
+			</td>
+		</tr>
+		<!--#end-->
+	</tbody>
+</table>
+<div class="pagination justify-content-center">
+	${pagebar}
+</div>

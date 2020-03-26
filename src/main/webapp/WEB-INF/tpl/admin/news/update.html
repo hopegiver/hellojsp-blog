@@ -41,55 +41,33 @@
 	            <label for="id-form-field-1" class="mb-0">News type</label>
 	        </div>	
 	        <div class="col-sm-4">
+	        	
+                #foreach($newstype in $newstypes)
+                	#foreach($newsinfo in $newsinfos)
                     <label>
-                        <input type="checkbox" name="news_type" value="popular"/>
-                        Popular
+                        <input type="checkbox" name="news_type${foreach.count}" value="${newstype.news_type}" #if(${newstype.news_type} == ${newsinfo.news_type}) checked="checked" #end/>
+                        ${newstype.news_type}
                     </label>
-                    <label>
-                        <input type="checkbox" name="news_type" value="breakingNews"/>
-                        Breaking News
-                    </label>
-                    <label>
-                        <input type="checkbox" name="news_type" value="new"/>
-                        New
-                    </label>
-                    <label>
-                        <input type="checkbox" name="news_type" value="old"/>
-                        Old
-                    </label>
-                    <label>
-                        <input type="checkbox" name="news_type" value="other"/>
-                        Other
-                    </label>
+                    #end
+          		#end                
 	        </div>
-	    </div>	
+	    </div>	     
 	    <div class="form-group row">
 	        <div class="col-sm-3 col-form-label text-sm-right pr-0">
 	            <label for="id-form-field-1" class="mb-0">Media type</label>
 	        </div>	
 	        <div class="col-sm-4">
+	        	
+                #foreach($mediatype in $mediatypes)
+                	#foreach($mediainfo in $mediainfos)
                     <label>
-                        <input type="checkbox" name="media_type" value="life"/>
-                        Life
+                        <input type="checkbox" name="media_type${foreach.count}" value="${mediatype.media_type}" #if(${mediatype.media_type} == ${mediainfo.media_type}) checked="checked" #end/>
+                        ${mediatype.media_type}
                     </label>
-                    <label>
-                        <input type="checkbox" name="media_type" value="news"/>
-                        News
-                    </label>
-                     <label>
-                        <input type="checkbox" name="media_type" value="breakingNews"/>
-                        Breaking news
-                    </label>
-                    <label>
-                        <input type="checkbox" name="media_type" value="editorial"/>
-                        Editorial
-                    </label>
-                    <label>
-                        <input type="checkbox" name="media_type" value="others"/>
-                        Others
-                    </label>
+                    #end
+          		#end                
 	        </div>
-	    </div>	    		    			    		
+	    </div>	    				    		
 		<div class="form-group row">
 	        <div class="col-sm-3 col-form-label text-sm-right pr-0">
 	            <label for="id-form-field-1" class="mb-0">Subject</label>
@@ -138,9 +116,9 @@
 	            <label for="id-form-field-1" class="mb-0">To use</label>
 	        </div>	
 	        <div class="col-sm-9">
-	            <label><input type="radio" class="radio-inline" name="use_yn" value="Y" #if(${news.use_yn} == 'Y')
+	            <label><input type="radio" class="radio-inline" name="use_yn" value="Y" #if(${info.use_yn} == 'Y')
 	            checked="checked"  #end/>Use</label>
-	            <label><input type="radio" class="radio-inline" name="use_yn" value="N" #if(${news.use_yn} == 'N')
+	            <label><input type="radio" class="radio-inline" name="use_yn" value="N" #if(${info.use_yn} == 'N')
 	            checked="checked" #end/>Not use</label>
 	        </div>
 	    </div>
@@ -149,9 +127,9 @@
 	            <label for="id-form-field-1" class="mb-0">Flow</label>
 	        </div>	
 	        <div class="col-sm-9">
-	            <label><input type="radio" class="radio-inline" name="flow" value="Y" #if(${news.flow} == 'Y')
+	            <label><input type="radio" class="radio-inline" name="flow" value="Y" #if(${info.flow} == 'Y')
 	            checked="checked" #end/>Yes</label>
-	            <label><input type="radio" class="radio-inline" name="flow" value="N" #if(${news.flow} == 'N')
+	            <label><input type="radio" class="radio-inline" name="flow" value="N" #if(${info.flow} == 'N')
 	            checked="checked" #end/>No</label>
 	        </div>
 	    </div>

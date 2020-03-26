@@ -2,6 +2,11 @@
 
 //Step1
 DataSet menuInfo = adminmenu.find("status != -1 and menu_cat='user'", "parent_id, menu_name", "sort");
+DataSet newstype = newsTypes.find("status != -1 and use_yn='Y'", "*");
+DataSet mediatype = mediaTypes.find("status != -1 and use_yn='Y'", "*");
+
+int newsCount = newsTypes.findCount("status != -1");
+int mediaCount = mediaTypes.findCount("status != -1");
 
 //Step2
 int id = m.reqInt("id");
@@ -11,10 +16,18 @@ if(id == 0) { m.jsError("Primary Key is required"); return; }
 DataSet info = news.find("id = " + id);
 if(!info.next()) { m.jsError("No Data"); return; }
 
+DataSet newsinfos = newsNewsTypes.find("news_id = " + id);
+DataSet mediainfos = newsMediaTypes.find("news_id = " + id);
+
+
 //Step4
 f.addElement("type", info.s("type"), "title:'type', required:true");
-f.addElement("news_type", info.s("news_type"), "title:'news_type', required:false");
-f.addElement("media_type", info.s("media_type"), "title:'media_type', required:false");
+for(int i = 1; i <= newsCount; i++){ 
+	f.addElement("news_type" + i, null, "title:'news_type'");
+	}
+for(int i = 1; i <= mediaCount; i++){ 
+f.addElement("media_type" + i, null, "title:'media_type'");
+}
 f.addElement("subject", info.s("subject"), "title:'subject', required:true");
 f.addElement("content", info.s("content"), "title:'content', required:true");
 f.addElement("photo_name", info.s("photo_name"), "title:'photo_name'");
@@ -26,9 +39,6 @@ f.addElement("flow", null, "title:'flow'");
 if(m.isPost() && f.validate()) {
 
 	news.item("type", f.get("type"));
-	mediaTypes.item("news_id", f.get(news.id));
-	mediaTypes.item("news_type", f.get("news_type"));
-	mediaTypes.item("media_type", f.get("media_type"));
 	news.item("subject", f.get("subject"));
 	news.item("content", f.get("content"));
 	news.item("video_url", f.get("video_url"));
@@ -70,6 +80,10 @@ p.setLayout("blog");
 p.setBody("admin/news/update");
 p.setVar("info", info);
 p.setVar("menuInfo", menuInfo);
+p.setVar("newsinfos", newsinfos);
+p.setVar("mediainfos", mediainfos);
+p.setVar("newstypes", newstype);
+p.setVar("mediatypes", mediatype);
 p.setVar("form_script", f.getScript());
 p.print();
 

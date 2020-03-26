@@ -36,59 +36,32 @@
 				</select>
 	        </div>
 	    </div> -->
-	    
 	    <div class="form-group row">
 	        <div class="col-sm-3 col-form-label text-sm-right pr-0">
 	            <label for="id-form-field-1" class="mb-0">News type</label>
 	        </div>	
 	        <div class="col-sm-4">
+	        	
+                #foreach($newstype in $newstypes)
                     <label>
-                        <input type="checkbox" name="news_type" value="popular"/>
-                        Popular
+                        <input type="checkbox" name="news_type${foreach.count}" value="${newstype.news_type}"/>
+                        ${newstype.news_type}
                     </label>
-                    <label>
-                        <input type="checkbox" name="news_type" value="breakingNews"/>
-                        Breaking News
-                    </label>
-                    <label>
-                        <input type="checkbox" name="news_type" value="new"/>
-                        New
-                    </label>
-                    <label>
-                        <input type="checkbox" name="news_type" value="old"/>
-                        Old
-                    </label>
-                    <label>
-                        <input type="checkbox" name="news_type" value="other"/>
-                        Other
-                    </label>
+          		#end                
 	        </div>
-	    </div>	
+	    </div>	     
 	    <div class="form-group row">
 	        <div class="col-sm-3 col-form-label text-sm-right pr-0">
 	            <label for="id-form-field-1" class="mb-0">Media type</label>
 	        </div>	
 	        <div class="col-sm-4">
+	        	
+                #foreach($mediatype in $mediatypes)
                     <label>
-                        <input type="checkbox" name="media_type" value="life"/>
-                        Life
+                        <input type="checkbox" name="media_type${foreach.count}" value="${mediatype.media_type}"/>
+                        ${mediatype.media_type}
                     </label>
-                    <label>
-                        <input type="checkbox" name="media_type" value="news"/>
-                        News
-                    </label>
-                     <label>
-                        <input type="checkbox" name="media_type" value="breakingNews"/>
-                        Breaking news
-                    </label>
-                    <label>
-                        <input type="checkbox" name="media_type" value="editorial"/>
-                        Editorial
-                    </label>
-                    <label>
-                        <input type="checkbox" name="media_type" value="others"/>
-                        Others
-                    </label>
+          		#end                
 	        </div>
 	    </div>	    		    		
 		<div class="form-group row">
@@ -143,10 +116,23 @@
 	    </div>
 	    <div class="form-group">
 			<div class="col text-center">
-				<input type="submit" value="Save" class="btn btn-primary">
+				<input type="submit" value="Save" class="btn btn-primary" id="save">
 				<input type="button" value="Cancel" class="btn btn-default" onclick="history.go(-1)">
 			</div>
 		</div>
 	</form>
 	${form_script}
 </div>
+<script>
+/* $(document).ready(function() {
+    $("#save").click(function(){
+        var media = [];
+        $.each($("input[name='media_type']:checked"), function(){
+            media.push($(this).val());
+        });
+        
+        $('#media_type_hidden').val(media);
+        alert("My media types are: " + media.join(", "));
+    });
+}); */
+</script>

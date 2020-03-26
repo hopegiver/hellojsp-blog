@@ -72,7 +72,7 @@
                <li class="nav-item #if(${pagetitle} == 'Admin') active #end ">
                
                  <a href="/admin" class="nav-link">
-               	 <i class="nav-icon fa fa-tachometer-alt"></i>
+               	 <i class="nav-icon fa fa-tachometer-alt nav-icon-round bgc-primary-tp1"></i>
                	 <span class="nav-text fadeable">
                	  <span>Dashboard</span>
                	 </span>
@@ -124,6 +124,24 @@
                	 <i class="nav-icon fa fa-image nav-icon-round bgc-info-tp1"></i>
                	 <span class="nav-text fadeable">
                	  <span>Banner</span>
+               	 </span>
+               	 </a>
+               </li>
+               <li class="nav-item #if(${pagetitle} == 'News Types') active #end">
+               
+                 <a href="/admin/newstypes/index.jsp" class="nav-link ">
+               	 <i class="nav-icon fa fa-image nav-icon-round bgc-purple-tp1"></i>
+               	 <span class="nav-text fadeable">
+               	  <span>News Types</span>
+               	 </span>
+               	 </a>
+               </li>
+               <li class="nav-item #if(${pagetitle} == 'Media Types') active #end">
+               
+                 <a href="/admin/mediatypes/index.jsp" class="nav-link ">
+               	 <i class="nav-icon fa fa-image nav-icon-round bgc-warning-tp1"></i>
+               	 <span class="nav-text fadeable">
+               	  <span>Media Types</span>
                	 </span>
                	 </a>
                </li>
