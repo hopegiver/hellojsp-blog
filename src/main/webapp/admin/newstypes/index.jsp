@@ -21,7 +21,7 @@ while(list.next()) {
 
 //Step4
 //p.setDebug(out);
-String pagetitle = "Media Types"; 
+String pagetitle = "News Types"; 
 String pageaction = "list"; 
 p.setVar("pagetitle", pagetitle);
 p.setVar("pageaction", pageaction);

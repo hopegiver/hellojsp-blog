@@ -117,10 +117,10 @@
 		p.setVar("pageaction", pageaction);
         p.setLayout("blog");
         p.setBody("admin/menu/index");
-        p.setVar("menuInfo", menuInfo);
+        p.setLoop("menuInfo", menuInfo);
         p.setVar("id", id);
-        p.setVar("subMenu", subMenu);
-        p.setVar("parent", parent);
+        p.setLoop("subMenu", subMenu);
+        p.setLoop("parent", parent);
         p.setVar("form_script", f.getScript());
         p.print();
 
