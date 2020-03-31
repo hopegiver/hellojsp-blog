@@ -28,7 +28,7 @@
 		p.setVar("pageaction", pageaction);
         p.setLayout("blog");
         p.setBody("admin/news/index");
-        p.setVar("list", list);
+        p.setLoop("list", list);
         p.setVar("total_cnt", lm.getTotalNum());
         p.setVar("pagebar", lm.getPaging());
         p.setVar("form_script", f.getScript());

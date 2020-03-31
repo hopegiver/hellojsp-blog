@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
 
+//Step1
+AdminMenuDao adminmenu = new AdminMenuDao();
 
 //Step2
 f.addElement("menu_name", null, "title:'menu_name', required:true");

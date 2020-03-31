@@ -18,6 +18,7 @@ DataSet list = lm.getDataSet();
 while(list.next()) {
 	list.put("reg_date", m.time("yyyy-MM-dd", list.s("reg_date")));
 }
+msg.setLocale(Locale.KOREAN);
 
 //Step4
 //p.setDebug(out);

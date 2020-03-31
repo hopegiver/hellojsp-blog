@@ -1,6 +1,13 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
 
 //Step1
+	AdminMenuDao adminmenu = new AdminMenuDao();
+	MediaTypesDao mediaTypes = new MediaTypesDao();
+	NewsTypesDao newsTypes = new NewsTypesDao();
+	NewsDao news = new NewsDao();
+	NewsMediaTypesDao newsMediaTypes = new NewsMediaTypesDao();
+	NewsNewsTypesDao newsNewsTypes = new NewsNewsTypesDao();
+
 	DataSet menuInfo = adminmenu.find("status != -1 and menu_cat='user'", "parent_id, menu_name", "sort");
 	DataSet newstype = newsTypes.find("status != -1 and use_yn='Y'", "news_type");
 	DataSet mediatype = mediaTypes.find("status != -1 and use_yn='Y'", "media_type");
@@ -80,9 +87,9 @@ p.setVar("pageaction", pageaction);
 p.setLayout("blog");
 p.setBody("admin/news/create");
 p.setVar("form_script", f.getScript());
-p.setVar("menuInfo", menuInfo);
-p.setVar("newstypes", newstype);
-p.setVar("mediatypes", mediatype);
+p.setLoop("menuInfo", menuInfo);
+p.setLoop("newstypes", newstype);
+p.setLoop("mediatypes", mediatype);
 /* p.setVar("medias", medias); */
 p.print();
 

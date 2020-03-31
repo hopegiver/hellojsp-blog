@@ -34,103 +34,212 @@
             </div>
         </div>
     </div>
-	<div class="col-12 col-md-8 mt-3 mt-md-0"> 
-		<form name="form1" method="post" enctype="multipart/form-data">
-			<div class="form-group row">
-		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
-		            <label for="id-form-field-1" class="mb-0">Menu Name</label>
-		        </div>	
-		        <div class="col-sm-9">
-		            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="menu_name" />
-		        </div>
-		    </div>
-		    <div class="form-group row">
-		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
-		            <label for="id-form-field-1" class="mb-0">Menu Type</label>
-		        </div>	
-		        <div class="col-sm-9">
-		            <label><input type="radio" class="radio-inline" name="menu_type" value="page" checked/>Page</label>
-		            <label><input type="radio" class="radio-inline" name="menu_type" value="not_board"/>Notice board</label>
-		            <label><input type="radio" class="radio-inline" name="menu_type" value="program"/>Program</label>
-		            <label><input type="radio" class="radio-inline" name="menu_type" value="link"/>Link</label>
-		            <label><input type="radio" class="radio-inline" name="menu_type" value="submenu_link"/>Submenu link</label>
-		        </div>
-		    </div>
-			<div class="form-group row">
-		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
-		            <label for="id-form-field-1" class="mb-0">Menu Category</label>
-		        </div>	
-		        <div class="col-sm-9">
-		            <label><input type="radio" class="radio-inline" name="menu_cat" value="admin"/>Admin</label>
-		            <label><input type="radio" class="radio-inline" name="menu_cat" value="user" checked/>User</label>
-		        </div>
-		    </div>
-			<div class="form-group row">
-		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
-		            <label for="id-form-field-1" class="mb-0">Parent ID</label>
-		        </div>	
-		        <div class="col-sm-4">
-				   <select class="form-control" id="form-field-select-1" name="parent_id">
-						  <option value="0">Select</option>
-							<!--#foreach($menu in $menuInfo)  -->
-							<option value="${menu.id}">${menu.menu_name}</option>
-							<!--#end -->
-					</select>
-		        </div>
-		    </div>
-			<div class="form-group row">
-		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
-		            <label for="id-form-field-1" class="mb-0">Menu Url</label>
-		        </div>	
-		        <div class="col-sm-9">
-		            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="menu_url" />
-		        </div>
-		    </div>
-			<div class="form-group row">
-		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
-		            <label for="id-form-field-1" class="mb-0">To use</label>
-		        </div>	
-		        <div class="col-sm-9">
-		            <label><input type="radio" class="radio-inline" name="use_yn" value="Y" checked/>Use</label>
-		            <label><input type="radio" class="radio-inline" name="use_yn" value="N"/>Not use</label>
-		        </div>
-		    </div>
-			<div class="form-group row">
-		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
-		            <label for="id-form-field-1" class="mb-0">Target</label>
-		        </div>	
-		        <div class="col-sm-9">
-		            <label><input type="radio" class="radio-inline" name="target" value="new" />New window</label>
-		            <label><input type="radio" class="radio-inline" name="target" value="current" checked/>Current window</label>
-		        </div>
-		    </div>
-			<div class="form-group row">
-		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
-		            <label for="id-form-field-1" class="mb-0">Menu Depth</label>
-		        </div>	
-		        <div class="col-sm-9">
-		            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="menu_depth" />
-		        </div>
-		    </div>
-			<div class="form-group row">
-		        <div class="col-sm-3 col-form-label text-sm-right pr-0">
-		            <label for="id-form-field-1" class="mb-0">Sort</label>
-		        </div>	
-		        <div class="col-sm-9">
-		            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="sort" />
-		        </div>
-		    </div>
-		    <div class="form-group">
-				<div class="col text-center">
-					<a href="index.jsp" class="btn btn-primary">New</a>
-					<input type="submit" value="Save" class="btn btn-success">
-					<input type="button" value="Cancel" class="btn btn-default" onclick="history.go(-1)">
-					<input type="button" value="Delete" class="btn btn-danger" id="delete">
-				</div>
+    <div class="card">
+    	<div class="card-header">
+    		<span class="text-blue-text-125">Add Menu</span>
+    	</div>
+    	<div class="card-body">
+			<div class="col-12"> 
+				<form name="frmCreate" method="post" enctype="multipart/form-data">
+					<div class="form-group row">
+				        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+				            <label for="id-form-field-1" class="mb-0">Menu Name</label>
+				        </div>	
+				        <div class="col-sm-9">
+				            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="menu_name" />
+				        </div>
+				    </div>
+				    <div class="form-group row">
+				        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+				            <label for="id-form-field-1" class="mb-0">Menu Type</label>
+				        </div>	
+				        <div class="col-sm-9">
+				            <label><input type="radio" class="radio-inline" name="menu_type" value="page" checked/>Page</label>
+				            <label><input type="radio" class="radio-inline" name="menu_type" value="not_board"/>Notice board</label>
+				            <label><input type="radio" class="radio-inline" name="menu_type" value="program"/>Program</label>
+				            <label><input type="radio" class="radio-inline" name="menu_type" value="link"/>Link</label>
+				            <label><input type="radio" class="radio-inline" name="menu_type" value="submenu_link"/>Submenu link</label>
+				        </div>
+				    </div>
+					<div class="form-group row">
+				        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+				            <label for="id-form-field-1" class="mb-0">Menu Category</label>
+				        </div>	
+				        <div class="col-sm-9">
+				            <label><input type="radio" class="radio-inline" name="menu_cat" value="admin"/>Admin</label>
+				            <label><input type="radio" class="radio-inline" name="menu_cat" value="user" checked/>User</label>
+				        </div>
+				    </div>
+					<div class="form-group row">
+				        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+				            <label for="id-form-field-1" class="mb-0">Parent ID</label>
+				        </div>	
+				        <div class="form-inline col-sm-9">
+						   <!-- <select class="form-control" id="form-field-select-1" name="parent_id">
+								  <option value="0">Select</option>
+									#foreach($menu in $menuInfo) 
+									<option value="${menu.id}">${menu.menu_name}</option>
+									#end
+							</select> -->
+							<input type="text" name="menu_name" class="form-control col-sm-8 col-md-6" id="id-form-field-1" required="required" readonly style="margin-right: 20px;"/>
+							<button type="button" class="btb btn-md btn-light" onclick="javascript:openMenuSelect('Create', '');">선택</button>
+				        </div>
+				    </div>
+					<div class="form-group row">
+				        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+				            <label for="id-form-field-1" class="mb-0">Menu Url</label>
+				        </div>	
+				        <div class="col-sm-9">
+				            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="menu_url" />
+				        </div>
+				    </div>
+					<div class="form-group row">
+				        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+				            <label for="id-form-field-1" class="mb-0">To use</label>
+				        </div>	
+				        <div class="col-sm-9">
+				            <label><input type="radio" class="radio-inline" name="use_yn" value="Y" checked/>Use</label>
+				            <label><input type="radio" class="radio-inline" name="use_yn" value="N"/>Not use</label>
+				        </div>
+				    </div>
+					<div class="form-group row">
+				        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+				            <label for="id-form-field-1" class="mb-0">Target</label>
+				        </div>	
+				        <div class="col-sm-9">
+				            <label><input type="radio" class="radio-inline" name="target" value="new" />New window</label>
+				            <label><input type="radio" class="radio-inline" name="target" value="current" checked/>Current window</label>
+				        </div>
+				    </div>
+					<div class="form-group row">
+				        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+				            <label for="id-form-field-1" class="mb-0">Menu Depth</label>
+				        </div>	
+				        <div class="col-sm-9">
+				            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="menu_depth" />
+				        </div>
+				    </div>
+					<div class="form-group row">
+				        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+				            <label for="id-form-field-1" class="mb-0">Sort</label>
+				        </div>	
+				        <div class="col-sm-9">
+				            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="sort" />
+				        </div>
+				    </div>
+				    <div class="form-group">
+						<div class="col text-center">
+							<a href="index.jsp" class="btn btn-primary">New</a>
+							<input type="submit" value="Save" class="btn btn-success">
+							<input type="button" value="Cancel" class="btn btn-default" onclick="history.go(-1)">
+							<input type="button" value="Delete" class="btn btn-danger" id="delete">
+						</div>
+					</div>
+				</form>
+				${form_script}
 			</div>
-		</form>
-		${form_script}
+		</div>
 	</div>
+	<div class="card">
+    	<div class="card-header">
+    		<span class="text-blue-text-125">Update Menu</span>
+    	</div>
+    	<div class="card-body">
+			<div class="col-12 col-md-8 mt-3 mt-md-0"> 
+			<form name="frmUpdate" method="post" enctype="multipart/form-data">
+				<div class="form-group row">
+			        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+			            <label for="id-form-field-1" class="mb-0">Menu Name</label>
+			        </div>	
+			        <div class="col-sm-9">
+			            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="menu_name" />
+			        </div>
+			    </div>
+			    <div class="form-group row">
+			        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+			            <label for="id-form-field-1" class="mb-0">Menu Type</label>
+			        </div>	
+			        <div class="col-sm-9">
+			            <label><input type="radio" class="radio-inline" name="menu_type" value="page" checked/>Page</label>
+			            <label><input type="radio" class="radio-inline" name="menu_type" value="not_board"/>Notice board</label>
+			            <label><input type="radio" class="radio-inline" name="menu_type" value="program"/>Program</label>
+			            <label><input type="radio" class="radio-inline" name="menu_type" value="link"/>Link</label>
+			            <label><input type="radio" class="radio-inline" name="menu_type" value="submenu_link"/>Submenu link</label>
+			        </div>
+			    </div>
+				<div class="form-group row">
+			        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+			            <label for="id-form-field-1" class="mb-0">Menu Category</label>
+			        </div>	
+			        <div class="col-sm-9">
+			            <label><input type="radio" class="radio-inline" name="menu_cat" value="admin"/>Admin</label>
+			            <label><input type="radio" class="radio-inline" name="menu_cat" value="user" checked/>User</label>
+			        </div>
+			    </div>
+				<div class="form-group row">
+			        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+			            <label for="id-form-field-1" class="mb-0">Parent ID</label>
+			        </div>	
+			        <div class="form-inline col-sm-9">
+						<input type="text" name="menu_name" class="form-control col-sm-8 col-md-6" id="id-form-field-1" required="required" readonly style="margin-right: 20px;"/>
+						<button type="button" class="btb btn-md btn-light" onclick="javascript:openMenuSelect('Update', document.formUpdate['id'].value);">선택</button>
+			        </div>
+			    </div>
+				<div class="form-group row">
+			        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+			            <label for="id-form-field-1" class="mb-0">Menu Url</label>
+			        </div>	
+			        <div class="col-sm-9">
+			            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="menu_url" />
+			        </div>
+			    </div>
+				<div class="form-group row">
+			        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+			            <label for="id-form-field-1" class="mb-0">To use</label>
+			        </div>	
+			        <div class="col-sm-9">
+			            <label><input type="radio" class="radio-inline" name="use_yn" value="Y" checked/>Use</label>
+			            <label><input type="radio" class="radio-inline" name="use_yn" value="N"/>Not use</label>
+			        </div>
+			    </div>
+				<div class="form-group row">
+			        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+			            <label for="id-form-field-1" class="mb-0">Target</label>
+			        </div>	
+			        <div class="col-sm-9">
+			            <label><input type="radio" class="radio-inline" name="target" value="new" />New window</label>
+			            <label><input type="radio" class="radio-inline" name="target" value="current" checked/>Current window</label>
+			        </div>
+			    </div>
+				<div class="form-group row">
+			        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+			            <label for="id-form-field-1" class="mb-0">Menu Depth</label>
+			        </div>	
+			        <div class="col-sm-9">
+			            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="menu_depth" />
+			        </div>
+			    </div>
+				<div class="form-group row">
+			        <div class="col-sm-3 col-form-label text-sm-right pr-0">
+			            <label for="id-form-field-1" class="mb-0">Sort</label>
+			        </div>	
+			        <div class="col-sm-9">
+			            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="sort" />
+			        </div>
+			    </div>
+			    <div class="form-group">
+					<div class="col text-center">
+						<a href="index.jsp" class="btn btn-primary">New</a>
+						<input type="submit" value="Save" class="btn btn-success">
+						<input type="button" value="Cancel" class="btn btn-default" onclick="history.go(-1)">
+						<input type="button" value="Delete" class="btn btn-danger" id="delete">
+					</div>
+				</div>
+			</form>
+			${form_script}
+		</div>
+	</div>
+	</div> 
 </div>
 
 <script>
@@ -174,4 +283,147 @@ $('#delete').click(function(){
 		return false;
 	}
 });
+
+function changeMenuActionCreate(){
+	var node = getSelectedMenuNode();
+	if(node != null){
+		$(document.formCreate['id']).val(node.id);
+		$(document.formCreate['menu_name']).val(node.text);
+	}
+}
+
+function changeMenuActionUpdate(){
+	var node = getSelectedMenuNode();
+	if(node != null){
+		$(document.formUpdate['id']).val(node.id);
+		$(document.formUpdate['menu_name']).val(node.text);
+	}
+}
+
+var menuData = [];
+var treeMenu = null;
+
+$(function(){
+	debugger;
+
+	$(window).on("load",function(){
+        $(".treeBox").mCustomScrollbar();
+    });
+	
+	var parent = {id:'0', parent:'#', text:'메뉴 권한', sort: '0', menu_depth: '0', use_yn: 'Y'};
+	menuData = ${arrayMenu};
+	menuData.push(parent);
+	
+	$("#menuSelect-dialog").dialog({
+		draggable: true,
+        resizable: false,
+        width: 450,
+        height: 500,
+        autoOpen: false,
+	    open: function (event, ui) {
+	    	fixDialogHeight("#menuSelect-dialog");
+	        //$(".ui-widget-overlay").css({display:"block"});
+	        setMenuNodeUse();
+	    },
+	    close: function (event, ui) {
+	    	$(this).mCustomScrollbar('destroy');
+	        //$(".ui-widget-overlay").css({display:"none"});
+	   	},
+	    buttons: [
+	    	{text: "선택", click: selectMenu},
+	    	{text: "닫기", click: closePop}
+    	]
+	});
+	
+	$('#treeBox').jstree({
+  		'core' : {
+  	    	"check_callback" : true,
+  	    	"opened" : true,
+  	    	"selected" : true,
+  	    	"data" : menuData,
+  		},
+  		"plugins" : [ "sort" ],
+  		"sort" : function(a, b) {
+  			var a1 = getMenuData(a);
+  	        var b1 = getMenuData(b);
+  	        if(a1 != null && b1 != null)
+      	        return a1.menu_depth >= b1.menu_depth && a1.sort >= b1.sort;
+  	        if(a1 != null)
+  	        	return true;
+  	        return false;
+  	    }
+  	});
+	
+	$('#treeBox').on("load_node.jstree", function (event, data) {
+		$(this).jstree("open_all");
+    });
+	
+	$(document).on('dblclick', '#treeBox .jstree-clicked', selectMenu);
+
+	treeMenu = $('#treeBox').jstree(true);
+});
+
+function getMenuData(id){
+	for(var i = 0; i < menuData.length; i++){
+		if(menuData[i].id == id)
+			return menuData[i];
+    }
+	return null;
+}
+
+function closePop(){
+	$("#menuSelect-dialog").dialog('close');
+}
+
+function openMenuSelect(flag, userId){
+	debugger;
+	$('#flag').val(flag);
+	
+	treeMenu.deselect_all();
+	treeMenu.open_all();
+	if(userId != null && userId != ''){
+		treeMenu.select_node(userId);
+	}
+	
+	$("#menuSelect-dialog").dialog('open');
+}
+
+function selectMenu(){
+	var flag = $('#flag').val();
+	if(flag == 'Create'){
+		changeMenuActionCreate();
+	}
+	else if(flag =='Update'){
+		changeMenuActionUpdate();
+	}
+	$("#menuSelect-dialog").dialog('close');
+}
+
+function getSelectedMenuNode(){
+	var sel = treeMenu.get_selected();
+	if(!sel.length)
+		return null;
+	
+	return treeMenu.get_node(sel[0]);
+}
+
+function setMenuNodeUse(){
+	debugger;
+	for(var i = 0; i < menuData.length; i++){
+		if(menuData[i].id != 0){
+			var tag = $("#treeBox #"+menuData[i].id+"_anchor");
+			var li = $(tag).find('i.jstree-themeicon');
+
+			//.jstree-default,  background-position: -260px -4px;
+			$(li).css('background-position', '-260px -36px');
+			if(menuData[i].useYn == 'N'){
+				//.jstree-er,  background-position:-36px -68px
+				$(li).css('background-position', '-36px -68px');
+			}else{
+				//.jstree-default,  background-position: -260px -4px;
+				$(li).css('background-position', '-260px -4px');
+			}
+		}
+    }
+}
 </script>

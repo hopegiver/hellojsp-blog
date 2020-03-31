@@ -1,5 +1,12 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
 
+//Step1
+MediaTypesDao mediaTypes = new MediaTypesDao();
+AdminMenuDao adminmenu = new AdminMenuDao();
+
+DataSet adminparentMenu = adminmenu .find("status != -1 AND parent_id = 0 AND menu_cat='admin'", "*", "sort");
+
+p.setVar("adminparentMenu", adminparentMenu);
 //Step2
 f.addElement("media_type", null, "title:'media_type', required:true");
 f.addElement("use_yn", null, "title:'use_yn'");

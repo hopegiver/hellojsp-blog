@@ -78,12 +78,12 @@ p.setVar("pagetitle", pagetitle);
 p.setVar("pageaction", pageaction);
 p.setLayout("blog");
 p.setBody("admin/news/update");
-p.setVar("info", info);
-p.setVar("menuInfo", menuInfo);
-p.setVar("newsinfos", newsinfos);
-p.setVar("mediainfos", mediainfos);
-p.setVar("newstypes", newstype);
-p.setVar("mediatypes", mediatype);
+p.setLoop("info", info);
+p.setLoop("menuInfo", menuInfo);
+p.setLoop("newsinfos", newsinfos);
+p.setLoop("mediainfos", mediainfos);
+p.setLoop("newstypes", newstype);
+p.setLoop("mediatypes", mediatype);
 p.setVar("form_script", f.getScript());
 p.print();
 

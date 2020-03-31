@@ -1,5 +1,9 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
 
+//Step1
+NewsTypesDao newsTypes = new NewsTypesDao();
+AdminMenuDao adminmenu = new AdminMenuDao();
+
 //Step2
 f.addElement("news_type", null, "title:'news_type', required:true");
 f.addElement("use_yn", null, "title:'use_yn'");

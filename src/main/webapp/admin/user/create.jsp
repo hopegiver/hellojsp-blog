@@ -1,5 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
 
+//Step1
+AdminUserDao adminuser = new AdminUserDao();
+
 //Step2
 f.addElement("login_id", null, "title:'login_id', required:true");
 f.addElement("passwd", null, "title:'passwd', required:true");

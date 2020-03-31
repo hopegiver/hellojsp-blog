@@ -1,7 +1,10 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
 
 
-        //Step1    
+        //Step1   
+        
+        AdminMenuDao adminmenu = new AdminMenuDao();
+
         DataSet menuInfo = adminmenu.find("status != -1", "*", "sort");
         
         DataSet subMenu = adminmenu.find("status != -1 AND parent_id != 0", "*", "sort");
@@ -110,6 +113,7 @@
         	
         	
         }
+        String arrayMenu = menuInfo.toJson();
         //Step4
 		String pagetitle = "Menu"; 
 		String pageaction = "list"; 
@@ -118,6 +122,7 @@
         p.setLayout("blog");
         p.setBody("admin/menu/index");
         p.setLoop("menuInfo", menuInfo);
+        p.setVar("arrayMenu", arrayMenu);
         p.setVar("id", id);
         p.setLoop("subMenu", subMenu);
         p.setLoop("parent", parent);

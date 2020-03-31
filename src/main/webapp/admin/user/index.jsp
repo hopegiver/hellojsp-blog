@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
+
 //m.p("USER_ID : " + userId);
         //Step2
         f.addElement("s_keyword", null, null);
@@ -26,7 +27,7 @@
 		p.setVar("pageaction", pageaction);
 		p.setLayout("blog");
         p.setBody("admin/user/index");
-        p.setVar("list", list);
+        p.setLoop("list", list);
         p.setVar("total_cnt", lm.getTotalNum());
         p.setVar("pagebar", lm.getPaging());
         p.setVar("form_script", f.getScript());

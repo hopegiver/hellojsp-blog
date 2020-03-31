@@ -1,5 +1,12 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
 
+//Step1
+NewsDao news = new NewsDao();
+MediaTypesDao mediaTypes = new MediaTypesDao();
+NewsTypesDao newsTypes = new NewsTypesDao();
+NewsMediaTypesDao newsMediaTypes = new NewsMediaTypesDao();
+NewsNewsTypesDao newsNewsTypes = new NewsNewsTypesDao();
+
 //Step2
 int id = m.reqInt("id");
 if(id == 0) { m.jsError("Primary Key is required"); return; }

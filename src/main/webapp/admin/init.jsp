@@ -26,17 +26,4 @@ if(userId == null){
 	m.jsReplace("/admin/login.jsp", "window");
 }
 
-AdminUserDao adminuser = new AdminUserDao();
-BannerDao banner = new BannerDao();
-NewsDao news = new NewsDao();
-MediaTypesDao mediaTypes = new MediaTypesDao();
-NewsTypesDao newsTypes = new NewsTypesDao();
-NewsMediaTypesDao newsMediaTypes = new NewsMediaTypesDao();
-NewsNewsTypesDao newsNewsTypes = new NewsNewsTypesDao();
-AdminMenuDao adminmenu = new AdminMenuDao();
-
-DataSet adminparentMenu = adminmenu .find("status != -1 AND parent_id = 0 AND menu_cat='admin'", "*", "sort");
-
-p.setVar("adminparentMenu", adminparentMenu);
-
 %>

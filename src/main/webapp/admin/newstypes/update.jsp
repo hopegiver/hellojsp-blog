@@ -1,5 +1,9 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
 
+//Step1
+NewsTypesDao newsTypes = new NewsTypesDao();
+AdminMenuDao adminmenu = new AdminMenuDao();
+
 //Step2
 int id = m.reqInt("id");
 if(id == 0) { m.jsError("Primary Key is required"); return; }
