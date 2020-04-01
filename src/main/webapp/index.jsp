@@ -15,7 +15,7 @@
         NewsMediaTypesDao newsMediaTypes = new NewsMediaTypesDao();
         NewsNewsTypesDao newsNewsTypes = new NewsNewsTypesDao();
         
-        DataSet breakingnews = news.query(
+       /*  DataSet breakingnews = news.query(
         		"select a.*, b.news_type, c.media_type" + " from " + news + " a " + "inner join " + newsNewsTypes + " b on a.id = b.news_id" +
         		" inner join " + newsMediaTypes + " c on a.id = c.news_id where a.status != -1 AND a.video_url != '' AND a.use_yn ='Y' AND a.type = 'Today' AND b.news_type = 'breaking news' a.reg_date DESK Limit 2");
         DataSet popular1 = news.query(
@@ -28,7 +28,7 @@
         
         DataSet popular3 = news.query(
         		"select a.*, b.news_type, c.media_type" + " from " + news + " a " + "inner join " + newsNewsTypes + " b on a.id = b.news_id" +
-        		" inner join " + newsMediaTypes + " c on a.id = c.news_id where a.status != -1 AND a.video_url != '' AND a.use_yn ='Y' AND a.type = 'Today' AND b.news_type = 'popular' a.reg_date DESK Limit 4");	
+        		" inner join " + newsMediaTypes + " c on a.id = c.news_id where a.status != -1 AND a.video_url != '' AND a.use_yn ='Y' AND a.type = 'Today' AND b.news_type = 'popular' a.reg_date DESK Limit 4");	 */
     	
         
         p.setBody("front/index");
@@ -37,10 +37,10 @@
         p.setVar("subMenu", subMenu);
         p.setVar("singleVideoPosts", singleVideoPosts);
         p.setVar("onePoliticNews", onePoliticNews);
-        p.setVar("breakingnews", breakingnews);
+       /*  p.setVar("breakingnews", breakingnews);
         p.setVar("popular1", popular1);
         p.setVar("popular2", popular2);
-        p.setVar("popular3", popular3);
+        p.setVar("popular3", popular3); */
         p.setVar("form_script", f.getScript());
         p.print();
         

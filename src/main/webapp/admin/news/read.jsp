@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
+//Step1
+NewsDao news = new NewsDao();
 
 //Step2
 int id = m.reqInt("id");

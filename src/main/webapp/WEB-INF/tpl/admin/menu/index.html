@@ -40,7 +40,7 @@
     	</div>
     	<div class="card-body">
 			<div class="col-12"> 
-				<form name="frmCreate" method="post" enctype="multipart/form-data">
+				<form name="formCreate" id="formCreate" method="post" enctype="multipart/form-data">
 					<div class="form-group row">
 				        <div class="col-sm-3 col-form-label text-sm-right pr-0">
 				            <label for="id-form-field-1" class="mb-0">Menu Name</label>
@@ -82,7 +82,10 @@
 									#end
 							</select> -->
 							<input type="text" name="menu_name" class="form-control col-sm-8 col-md-6" id="id-form-field-1" required="required" readonly style="margin-right: 20px;"/>
-							<button type="button" class="btb btn-md btn-light" onclick="javascript:openMenuSelect('Create', '');">선택</button>
+							<button type="button" class="btb btn-md btn-light" onclick="javascript:openMenuSelect('Create', '');">Select Menu</button> 
+							<!-- <button type="button" class="btn btn-md btn-default" data-toggle="modal" data-target="#exampleModal">
+                              Select Menu
+                            </button> -->
 				        </div>
 				    </div>
 					<div class="form-group row">
@@ -140,107 +143,34 @@
 			</div>
 		</div>
 	</div>
-	<div class="card">
-    	<div class="card-header">
-    		<span class="text-blue-text-125">Update Menu</span>
-    	</div>
-    	<div class="card-body">
-			<div class="col-12 col-md-8 mt-3 mt-md-0"> 
-			<form name="frmUpdate" method="post" enctype="multipart/form-data">
-				<div class="form-group row">
-			        <div class="col-sm-3 col-form-label text-sm-right pr-0">
-			            <label for="id-form-field-1" class="mb-0">Menu Name</label>
-			        </div>	
-			        <div class="col-sm-9">
-			            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="menu_name" />
-			        </div>
-			    </div>
-			    <div class="form-group row">
-			        <div class="col-sm-3 col-form-label text-sm-right pr-0">
-			            <label for="id-form-field-1" class="mb-0">Menu Type</label>
-			        </div>	
-			        <div class="col-sm-9">
-			            <label><input type="radio" class="radio-inline" name="menu_type" value="page" checked/>Page</label>
-			            <label><input type="radio" class="radio-inline" name="menu_type" value="not_board"/>Notice board</label>
-			            <label><input type="radio" class="radio-inline" name="menu_type" value="program"/>Program</label>
-			            <label><input type="radio" class="radio-inline" name="menu_type" value="link"/>Link</label>
-			            <label><input type="radio" class="radio-inline" name="menu_type" value="submenu_link"/>Submenu link</label>
-			        </div>
-			    </div>
-				<div class="form-group row">
-			        <div class="col-sm-3 col-form-label text-sm-right pr-0">
-			            <label for="id-form-field-1" class="mb-0">Menu Category</label>
-			        </div>	
-			        <div class="col-sm-9">
-			            <label><input type="radio" class="radio-inline" name="menu_cat" value="admin"/>Admin</label>
-			            <label><input type="radio" class="radio-inline" name="menu_cat" value="user" checked/>User</label>
-			        </div>
-			    </div>
-				<div class="form-group row">
-			        <div class="col-sm-3 col-form-label text-sm-right pr-0">
-			            <label for="id-form-field-1" class="mb-0">Parent ID</label>
-			        </div>	
-			        <div class="form-inline col-sm-9">
-						<input type="text" name="menu_name" class="form-control col-sm-8 col-md-6" id="id-form-field-1" required="required" readonly style="margin-right: 20px;"/>
-						<button type="button" class="btb btn-md btn-light" onclick="javascript:openMenuSelect('Update', document.formUpdate['id'].value);">선택</button>
-			        </div>
-			    </div>
-				<div class="form-group row">
-			        <div class="col-sm-3 col-form-label text-sm-right pr-0">
-			            <label for="id-form-field-1" class="mb-0">Menu Url</label>
-			        </div>	
-			        <div class="col-sm-9">
-			            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="menu_url" />
-			        </div>
-			    </div>
-				<div class="form-group row">
-			        <div class="col-sm-3 col-form-label text-sm-right pr-0">
-			            <label for="id-form-field-1" class="mb-0">To use</label>
-			        </div>	
-			        <div class="col-sm-9">
-			            <label><input type="radio" class="radio-inline" name="use_yn" value="Y" checked/>Use</label>
-			            <label><input type="radio" class="radio-inline" name="use_yn" value="N"/>Not use</label>
-			        </div>
-			    </div>
-				<div class="form-group row">
-			        <div class="col-sm-3 col-form-label text-sm-right pr-0">
-			            <label for="id-form-field-1" class="mb-0">Target</label>
-			        </div>	
-			        <div class="col-sm-9">
-			            <label><input type="radio" class="radio-inline" name="target" value="new" />New window</label>
-			            <label><input type="radio" class="radio-inline" name="target" value="current" checked/>Current window</label>
-			        </div>
-			    </div>
-				<div class="form-group row">
-			        <div class="col-sm-3 col-form-label text-sm-right pr-0">
-			            <label for="id-form-field-1" class="mb-0">Menu Depth</label>
-			        </div>	
-			        <div class="col-sm-9">
-			            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="menu_depth" />
-			        </div>
-			    </div>
-				<div class="form-group row">
-			        <div class="col-sm-3 col-form-label text-sm-right pr-0">
-			            <label for="id-form-field-1" class="mb-0">Sort</label>
-			        </div>	
-			        <div class="col-sm-9">
-			            <input type="text" class="form-control col-sm-8 col-md-6" id="id-form-field-1" name="sort" />
-			        </div>
-			    </div>
-			    <div class="form-group">
-					<div class="col text-center">
-						<a href="index.jsp" class="btn btn-primary">New</a>
-						<input type="submit" value="Save" class="btn btn-success">
-						<input type="button" value="Cancel" class="btn btn-default" onclick="history.go(-1)">
-						<input type="button" value="Delete" class="btn btn-danger" id="delete">
-					</div>
-				</div>
-			</form>
-			${form_script}
-		</div>
-	</div>
-	</div> 
 </div>
+<div id="menuSelect-dialog" title="메뉴 선택">
+	<input type="hidden" id="flag" />
+	<div id="groupTree"  data-mcs-theme="dark-thin">
+		<div id="treeBox" class="depth_container"></div>
+	</div>
+</div>  
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Select Menu</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      		<div class="card-body bgc-white border-1 border-t-0 brc-default-m2">
+                <div class="jqtree" id="id-jqtree-categories"></div>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->
 
 <script>
 var id =${id}
@@ -284,7 +214,7 @@ $('#delete').click(function(){
 	}
 });
 
-function changeMenuActionCreate(){
+ function changeMenuActionCreate(){
 	var node = getSelectedMenuNode();
 	if(node != null){
 		$(document.formCreate['id']).val(node.id);
@@ -304,15 +234,14 @@ var menuData = [];
 var treeMenu = null;
 
 $(function(){
-	debugger;
 
 	$(window).on("load",function(){
         $(".treeBox").mCustomScrollbar();
-    });
+    }); 
 	
 	var parent = {id:'0', parent:'#', text:'메뉴 권한', sort: '0', menu_depth: '0', use_yn: 'Y'};
-	menuData = ${arrayMenu};
-	menuData.push(parent);
+	menuData = categoryData;
+	//menuData.push(parent);
 	
 	$("#menuSelect-dialog").dialog({
 		draggable: true,
@@ -340,7 +269,7 @@ $(function(){
   	    	"check_callback" : true,
   	    	"opened" : true,
   	    	"selected" : true,
-  	    	"data" : menuData,
+  	    	"data" : categoryData,
   		},
   		"plugins" : [ "sort" ],
   		"sort" : function(a, b) {
@@ -376,14 +305,13 @@ function closePop(){
 }
 
 function openMenuSelect(flag, userId){
-	debugger;
 	$('#flag').val(flag);
 	
 	treeMenu.deselect_all();
 	treeMenu.open_all();
 	if(userId != null && userId != ''){
 		treeMenu.select_node(userId);
-	}
+	} 
 	
 	$("#menuSelect-dialog").dialog('open');
 }
@@ -408,7 +336,6 @@ function getSelectedMenuNode(){
 }
 
 function setMenuNodeUse(){
-	debugger;
 	for(var i = 0; i < menuData.length; i++){
 		if(menuData[i].id != 0){
 			var tag = $("#treeBox #"+menuData[i].id+"_anchor");
@@ -416,7 +343,7 @@ function setMenuNodeUse(){
 
 			//.jstree-default,  background-position: -260px -4px;
 			$(li).css('background-position', '-260px -36px');
-			if(menuData[i].useYn == 'N'){
+			if(menuData[i].use_yn == 'N'){
 				//.jstree-er,  background-position:-36px -68px
 				$(li).css('background-position', '-36px -68px');
 			}else{
@@ -426,4 +353,35 @@ function setMenuNodeUse(){
 		}
     }
 }
+
+function fixDialogHeight(selector){
+	var windowHeight = jQuery(window).height();
+	var dialogHeight = jQuery(selector)[0].offsetHeight;
+	var left = Math.max(jQuery(window).width() / 2 - jQuery(selector)[0].offsetWidth / 2, 0);
+	var top = 60;
+	if(windowHeight - 60 > dialogHeight){
+		top = Math.max(windowHeight / 2 - dialogHeight / 2, 0);
+	}
+	if(top < 60){top = 60;}
+	jQuery(selector).parent().css({'top': top + 'px', 'left': left + 'px', 'position': 'fixed', 'overflow':'hidden'});
+	if(windowHeight - 60 <= dialogHeight){
+		jQuery(selector).parent().css({'max-height':'calc(100vh - 60px)'});
+		jQuery(selector).css({'max-height':'calc(100vh - 70px)','overflow':'hidden'});
+		jQuery(selector).find('.mCSB_outside+.mCSB_scrollTools').css('right','-6px');
+	}
+	jQuery(selector).mCustomScrollbar({
+		axis:"y",
+		theme : "dark",
+		scrollbarPosition:"inside",
+		setTop:"15px",
+		callbacks : {
+			onScroll : function(){
+				localStorage.setItem("adh_scroll", this.mcs.top);
+			},
+			whileScrolling:function(){
+				localStorage.setItem("adh_scroll", this.mcs.top);
+			}
+		}
+	})
+} 
 </script>

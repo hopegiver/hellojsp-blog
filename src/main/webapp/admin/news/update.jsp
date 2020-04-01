@@ -1,6 +1,13 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="../init.jsp" %><%
 
 //Step1
+AdminMenuDao adminmenu = new AdminMenuDao();
+MediaTypesDao mediaTypes = new MediaTypesDao();
+NewsTypesDao newsTypes = new NewsTypesDao();
+NewsDao news = new NewsDao();
+NewsMediaTypesDao newsMediaTypes = new NewsMediaTypesDao();
+NewsNewsTypesDao newsNewsTypes = new NewsNewsTypesDao();
+
 DataSet menuInfo = adminmenu.find("status != -1 and menu_cat='user'", "parent_id, menu_name", "sort");
 DataSet newstype = newsTypes.find("status != -1 and use_yn='Y'", "*");
 DataSet mediatype = mediaTypes.find("status != -1 and use_yn='Y'", "*");

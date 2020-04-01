@@ -1,0 +1,63 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Select Menu</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="jqtree" id="id-jqtree-categories"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script>
+var id =${id}
+var categoryData = [
+    {
+        id: 0,
+        name: 'Menu',
+
+        children: [
+        	#foreach($menu in $menuInfo)
+            #if(${menu.parent_id} == 0)
+                {
+            id: ${menu.id},
+            name: "${menu.menu_name}",
+
+                children: [
+                	#foreach($sMenu in $subMenu)
+                    #if(${menu.id} == ${sMenu.parent_id} && ${sMenu.parent_id} > 0)
+                    {
+                        id: ${sMenu.id},
+                        name: "${sMenu.menu_name}"
+                    },
+                    #end
+                    #end
+                ]
+            },
+            #end
+            #end
+        ]
+    }  
+];
+
+$('#delete').click(function(){
+	var click = confirm("Are you sure you want to delete this menu?");
+	if(click == true){
+		var url = window.location.pathname; 
+		location.replace(url + "?id=" + id + "&del=1");
+	}
+	else {
+		return false;
+	}
+});
+</script>
+
